@@ -1,0 +1,2078 @@
+{
+  "configuration": {
+    "window": 20,
+    "budget": 20,
+    "top_k": 4,
+    "dense": "LSA statistical vectors",
+    "reranker": "token overlap",
+    "split": "dev"
+  },
+  "query_count": 16,
+  "modes": {
+    "bm25": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "multi": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "negation": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "price_rules": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "state": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R01",
+          "slice": "entity",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 1.4795409515500069
+        },
+        {
+          "id": "R02",
+          "slice": "entity",
+          "ranking": [
+            "fruit",
+            "child",
+            "incident1",
+            "phone128"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.8322498761117458
+        },
+        {
+          "id": "R04",
+          "slice": "exact",
+          "ranking": [
+            "phone128",
+            "phone256",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.49954187124967575
+        },
+        {
+          "id": "R05",
+          "slice": "exact",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.4914170131087303
+        },
+        {
+          "id": "R07",
+          "slice": "exact",
+          "ranking": [
+            "order-timeout",
+            "pay-error",
+            "numeric",
+            "menu-channel"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.47883298248052597
+        },
+        {
+          "id": "R08",
+          "slice": "chinese",
+          "ranking": [
+            "menu-channel",
+            "pay-error",
+            "numeric",
+            "menu-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.8393330499529839
+        },
+        {
+          "id": "R10",
+          "slice": "state",
+          "ranking": [
+            "states",
+            "injection",
+            "order-timeout",
+            "price-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.7188748568296432
+        },
+        {
+          "id": "R11",
+          "slice": "price_rules",
+          "ranking": [
+            "price-rule",
+            "injection",
+            "price-contract",
+            "conflict-a"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 1.0306253097951412
+        },
+        {
+          "id": "R13",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "states",
+            "menu-channel",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.744083896279335
+        },
+        {
+          "id": "R14",
+          "slice": "negation",
+          "ranking": [
+            "unknown",
+            "case",
+            "graph-rule",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.8749580010771751
+        },
+        {
+          "id": "R16",
+          "slice": "multi",
+          "ranking": [
+            "price-contract",
+            "menu-contract",
+            "menu-channel",
+            "order-timeout"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 1.1732499115169048
+        },
+        {
+          "id": "R17",
+          "slice": "multi",
+          "ranking": [
+            "incident1",
+            "incident2",
+            "menu-contract",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.811500009149313
+        },
+        {
+          "id": "R19",
+          "slice": "engineering",
+          "ranking": [
+            "price-contract",
+            "price-rule",
+            "conflict-a",
+            "conflict-b"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 1.1925837025046349
+        },
+        {
+          "id": "R20",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident1",
+            "fruit",
+            "menu-contract",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.7853331044316292
+        },
+        {
+          "id": "R22",
+          "slice": "diagnosis",
+          "ranking": [
+            "pay-error",
+            "order-timeout",
+            "states",
+            "numeric"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.9147501550614834
+        },
+        {
+          "id": "R23",
+          "slice": "diagnosis",
+          "ranking": [
+            "order-timeout",
+            "incident2",
+            "graph-rule",
+            "states"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.7587079890072346
+        }
+      ]
+    },
+    "dense": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 0.96875,
+        "ndcg": 0.9769331095982161,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 0.8333333333333334,
+          "ndcg": 0.8769765845238191,
+          "coverage": 1.0
+        },
+        "multi": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "negation": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "price_rules": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "state": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R01",
+          "slice": "entity",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 4.418957978487015
+        },
+        {
+          "id": "R02",
+          "slice": "entity",
+          "ranking": [
+            "fruit",
+            "child",
+            "incident1",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.4379161186516285
+        },
+        {
+          "id": "R04",
+          "slice": "exact",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 0.5,
+            "ndcg": 0.6309297535714574,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.3332079872488976
+        },
+        {
+          "id": "R05",
+          "slice": "exact",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.309666946530342
+        },
+        {
+          "id": "R07",
+          "slice": "exact",
+          "ranking": [
+            "order-timeout",
+            "pay-error",
+            "menu-channel",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.285124734044075
+        },
+        {
+          "id": "R08",
+          "slice": "chinese",
+          "ranking": [
+            "menu-channel",
+            "menu-contract",
+            "numeric",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.3529157042503357
+        },
+        {
+          "id": "R10",
+          "slice": "state",
+          "ranking": [
+            "states",
+            "injection",
+            "order-timeout",
+            "price-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.2958340123295784
+        },
+        {
+          "id": "R11",
+          "slice": "price_rules",
+          "ranking": [
+            "price-rule",
+            "injection",
+            "conflict-b",
+            "conflict-a"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.38658394664526
+        },
+        {
+          "id": "R13",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "states",
+            "menu-channel",
+            "price-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.2815419360995293
+        },
+        {
+          "id": "R14",
+          "slice": "negation",
+          "ranking": [
+            "unknown",
+            "case",
+            "incident1",
+            "graph-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.3912922479212284
+        },
+        {
+          "id": "R16",
+          "slice": "multi",
+          "ranking": [
+            "menu-contract",
+            "price-contract",
+            "incident2",
+            "menu-channel"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.414083108305931
+        },
+        {
+          "id": "R17",
+          "slice": "multi",
+          "ranking": [
+            "incident1",
+            "incident2",
+            "menu-contract",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.3357090540230274
+        },
+        {
+          "id": "R19",
+          "slice": "engineering",
+          "ranking": [
+            "price-contract",
+            "menu-contract",
+            "price-rule",
+            "conflict-a"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.273667138069868
+        },
+        {
+          "id": "R20",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident1",
+            "incident2",
+            "price-rule",
+            "menu-channel"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.601832617074251
+        },
+        {
+          "id": "R22",
+          "slice": "diagnosis",
+          "ranking": [
+            "pay-error",
+            "states",
+            "order-timeout",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.473332919180393
+        },
+        {
+          "id": "R23",
+          "slice": "diagnosis",
+          "ranking": [
+            "order-timeout",
+            "incident2",
+            "graph-rule",
+            "states"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.2428338415920734
+        }
+      ]
+    },
+    "hybrid": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "multi": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "negation": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "price_rules": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "state": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R01",
+          "slice": "entity",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.98949982970953
+        },
+        {
+          "id": "R02",
+          "slice": "entity",
+          "ranking": [
+            "fruit",
+            "child",
+            "incident1",
+            "phone128"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.8744996525347233
+        },
+        {
+          "id": "R04",
+          "slice": "exact",
+          "ranking": [
+            "phone128",
+            "phone256",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.646499779075384
+        },
+        {
+          "id": "R05",
+          "slice": "exact",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.6782918721437454
+        },
+        {
+          "id": "R07",
+          "slice": "exact",
+          "ranking": [
+            "order-timeout",
+            "pay-error",
+            "menu-channel",
+            "numeric"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.6967497542500496
+        },
+        {
+          "id": "R08",
+          "slice": "chinese",
+          "ranking": [
+            "menu-channel",
+            "menu-contract",
+            "numeric",
+            "pay-error"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.061333205550909
+        },
+        {
+          "id": "R10",
+          "slice": "state",
+          "ranking": [
+            "states",
+            "injection",
+            "order-timeout",
+            "price-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.889957744628191
+        },
+        {
+          "id": "R11",
+          "slice": "price_rules",
+          "ranking": [
+            "price-rule",
+            "injection",
+            "conflict-b",
+            "price-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.188875038176775
+        },
+        {
+          "id": "R13",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "states",
+            "menu-channel",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.8106248937547207
+        },
+        {
+          "id": "R14",
+          "slice": "negation",
+          "ranking": [
+            "unknown",
+            "case",
+            "graph-rule",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.0468343757092953
+        },
+        {
+          "id": "R16",
+          "slice": "multi",
+          "ranking": [
+            "menu-contract",
+            "price-contract",
+            "menu-channel",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.450416959822178
+        },
+        {
+          "id": "R17",
+          "slice": "multi",
+          "ranking": [
+            "incident1",
+            "incident2",
+            "menu-contract",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.9541668482124805
+        },
+        {
+          "id": "R19",
+          "slice": "engineering",
+          "ranking": [
+            "price-contract",
+            "price-rule",
+            "conflict-a",
+            "menu-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.2241251319646835
+        },
+        {
+          "id": "R20",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident1",
+            "incident2",
+            "fruit",
+            "menu-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.8831660747528076
+        },
+        {
+          "id": "R22",
+          "slice": "diagnosis",
+          "ranking": [
+            "pay-error",
+            "order-timeout",
+            "states",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.0755000188946724
+        },
+        {
+          "id": "R23",
+          "slice": "diagnosis",
+          "ranking": [
+            "order-timeout",
+            "incident2",
+            "graph-rule",
+            "states"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.917750272899866
+        }
+      ]
+    },
+    "weighted": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "multi": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "negation": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "price_rules": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "state": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R01",
+          "slice": "entity",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.1661251559853554
+        },
+        {
+          "id": "R02",
+          "slice": "entity",
+          "ranking": [
+            "fruit",
+            "child",
+            "incident1",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.9318751767277718
+        },
+        {
+          "id": "R04",
+          "slice": "exact",
+          "ranking": [
+            "phone128",
+            "phone256",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.8765001334249973
+        },
+        {
+          "id": "R05",
+          "slice": "exact",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.6863329112529755
+        },
+        {
+          "id": "R07",
+          "slice": "exact",
+          "ranking": [
+            "order-timeout",
+            "pay-error",
+            "menu-channel",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.6666251942515373
+        },
+        {
+          "id": "R08",
+          "slice": "chinese",
+          "ranking": [
+            "menu-channel",
+            "menu-contract",
+            "numeric",
+            "pay-error"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.0760830268263817
+        },
+        {
+          "id": "R10",
+          "slice": "state",
+          "ranking": [
+            "states",
+            "injection",
+            "order-timeout",
+            "price-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.9217498376965523
+        },
+        {
+          "id": "R11",
+          "slice": "price_rules",
+          "ranking": [
+            "price-rule",
+            "injection",
+            "conflict-b",
+            "conflict-a"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.2066251151263714
+        },
+        {
+          "id": "R13",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "states",
+            "menu-channel",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.8463751077651978
+        },
+        {
+          "id": "R14",
+          "slice": "negation",
+          "ranking": [
+            "unknown",
+            "case",
+            "graph-rule",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.083541989326477
+        },
+        {
+          "id": "R16",
+          "slice": "multi",
+          "ranking": [
+            "price-contract",
+            "menu-contract",
+            "menu-channel",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.6237919703125954
+        },
+        {
+          "id": "R17",
+          "slice": "multi",
+          "ranking": [
+            "incident1",
+            "incident2",
+            "menu-contract",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.119416069239378
+        },
+        {
+          "id": "R19",
+          "slice": "engineering",
+          "ranking": [
+            "price-contract",
+            "menu-contract",
+            "price-rule",
+            "conflict-a"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.2617500983178616
+        },
+        {
+          "id": "R20",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident1",
+            "incident2",
+            "price-rule",
+            "menu-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.948707900941372
+        },
+        {
+          "id": "R22",
+          "slice": "diagnosis",
+          "ranking": [
+            "pay-error",
+            "states",
+            "order-timeout",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.1709163449704647
+        },
+        {
+          "id": "R23",
+          "slice": "diagnosis",
+          "ranking": [
+            "order-timeout",
+            "incident2",
+            "graph-rule",
+            "states"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.0475002713501453
+        }
+      ]
+    },
+    "rerank": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 3,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "multi": {
+          "n": 2,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "negation": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "price_rules": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "state": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R01",
+          "slice": "entity",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.4412499517202377
+        },
+        {
+          "id": "R02",
+          "slice": "entity",
+          "ranking": [
+            "fruit",
+            "case",
+            "child",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.313541878014803
+        },
+        {
+          "id": "R04",
+          "slice": "exact",
+          "ranking": [
+            "phone128",
+            "phone256",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.863416913896799
+        },
+        {
+          "id": "R05",
+          "slice": "exact",
+          "ranking": [
+            "phone256",
+            "phone128",
+            "case",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.9093329794704914
+        },
+        {
+          "id": "R07",
+          "slice": "exact",
+          "ranking": [
+            "order-timeout",
+            "pay-error",
+            "menu-channel",
+            "numeric"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.509208094328642
+        },
+        {
+          "id": "R08",
+          "slice": "chinese",
+          "ranking": [
+            "menu-channel",
+            "pay-error",
+            "graph-rule",
+            "menu-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.4100422635674477
+        },
+        {
+          "id": "R10",
+          "slice": "state",
+          "ranking": [
+            "states",
+            "injection",
+            "order-timeout",
+            "price-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.1882496550679207
+        },
+        {
+          "id": "R11",
+          "slice": "price_rules",
+          "ranking": [
+            "price-rule",
+            "price-contract",
+            "conflict-a",
+            "conflict-b"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.574832808226347
+        },
+        {
+          "id": "R13",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "states",
+            "case",
+            "graph-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.097082953900099
+        },
+        {
+          "id": "R14",
+          "slice": "negation",
+          "ranking": [
+            "unknown",
+            "case",
+            "graph-rule",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.495458047837019
+        },
+        {
+          "id": "R16",
+          "slice": "multi",
+          "ranking": [
+            "price-contract",
+            "menu-contract",
+            "menu-channel",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.6532501690089703
+        },
+        {
+          "id": "R17",
+          "slice": "multi",
+          "ranking": [
+            "incident1",
+            "incident2",
+            "menu-channel",
+            "menu-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.2894578762352467
+        },
+        {
+          "id": "R19",
+          "slice": "engineering",
+          "ranking": [
+            "price-contract",
+            "price-rule",
+            "conflict-a",
+            "conflict-b"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.5627917386591434
+        },
+        {
+          "id": "R20",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident1",
+            "fruit",
+            "incident2",
+            "menu-channel"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.1534158624708652
+        },
+        {
+          "id": "R22",
+          "slice": "diagnosis",
+          "ranking": [
+            "pay-error",
+            "order-timeout",
+            "states",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.4539587795734406
+        },
+        {
+          "id": "R23",
+          "slice": "diagnosis",
+          "ranking": [
+            "order-timeout",
+            "incident2",
+            "graph-rule",
+            "pay-error"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.225250169634819
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,422 @@
+[
+  {
+    "id": "R01",
+    "query": "苹果标准版手机256GB规格",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "entity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "R02",
+    "query": "红富士水果一公斤",
+    "gold": {
+      "fruit": 2
+    },
+    "slice": "entity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "fruit"
+      ]
+    ]
+  },
+  {
+    "id": "R03",
+    "query": "苹果手机壳适配",
+    "gold": {
+      "case": 2
+    },
+    "slice": "entity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "case"
+      ]
+    ]
+  },
+  {
+    "id": "R04",
+    "query": "PHONE-A-128 容量",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "exact",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "R05",
+    "query": "PHONE-A-256 容量",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "exact",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "R06",
+    "query": "ERR-PAY-042 回调",
+    "gold": {
+      "pay-error": 2
+    },
+    "slice": "exact",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "pay-error"
+      ]
+    ]
+  },
+  {
+    "id": "R07",
+    "query": "svc-order-v2 超时",
+    "gold": {
+      "order-timeout": 2
+    },
+    "slice": "exact",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "R08",
+    "query": "小程序顯示售罄 POS 能賣",
+    "gold": {
+      "menu-channel": 2
+    },
+    "slice": "chinese",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ]
+    ]
+  },
+  {
+    "id": "R09",
+    "query": "payment captured 出杯完成",
+    "gold": {
+      "states": 2
+    },
+    "slice": "chinese",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "states"
+      ]
+    ]
+  },
+  {
+    "id": "R10",
+    "query": "退款受理资金到账",
+    "gold": {
+      "states": 2
+    },
+    "slice": "state",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "states"
+      ]
+    ]
+  },
+  {
+    "id": "R11",
+    "query": "到店外送会员定制配料报价",
+    "gold": {
+      "price-rule": 2
+    },
+    "slice": "price_rules",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "price-rule"
+      ]
+    ]
+  },
+  {
+    "id": "R12",
+    "query": "超过2件不包括2件",
+    "gold": {
+      "numeric": 2
+    },
+    "slice": "numeric",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "numeric"
+      ]
+    ]
+  },
+  {
+    "id": "R13",
+    "query": "不高于小于等于",
+    "gold": {
+      "numeric": 2
+    },
+    "slice": "numeric",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "numeric"
+      ]
+    ]
+  },
+  {
+    "id": "R14",
+    "query": "配方未知不含花生",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "negation",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "R15",
+    "query": "登记图无依赖生产测试",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "cmdb",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "R16",
+    "query": "发布前检查价格菜单接口契约",
+    "gold": {
+      "price-contract": 2,
+      "menu-contract": 2
+    },
+    "slice": "multi",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "price-contract"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "R17",
+    "query": "菜单故障复盘主题",
+    "gold": {
+      "incident1": 2,
+      "incident2": 2
+    },
+    "slice": "multi",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "incident1"
+      ],
+      [
+        "incident2"
+      ]
+    ]
+  },
+  {
+    "id": "R18",
+    "query": "菜单渠道生效版本可售同步水位",
+    "gold": {
+      "menu-contract": 2
+    },
+    "slice": "engineering",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "R19",
+    "query": "价格币种会员有效期订单快照",
+    "gold": {
+      "price-contract": 2
+    },
+    "slice": "engineering",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "price-contract"
+      ]
+    ]
+  },
+  {
+    "id": "R20",
+    "query": "相似症状同一根因",
+    "gold": {
+      "incident1": 2
+    },
+    "slice": "diagnosis",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "incident1"
+      ]
+    ]
+  },
+  {
+    "id": "R21",
+    "query": "同步水位落后消息丢失",
+    "gold": {
+      "incident2": 2
+    },
+    "slice": "diagnosis",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "incident2"
+      ]
+    ]
+  },
+  {
+    "id": "R22",
+    "query": "支付回调超时核对消费组",
+    "gold": {
+      "pay-error": 2
+    },
+    "slice": "diagnosis",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "pay-error"
+      ]
+    ]
+  },
+  {
+    "id": "R23",
+    "query": "下游响应 trace 消息处理",
+    "gold": {
+      "order-timeout": 2
+    },
+    "slice": "diagnosis",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "R24",
+    "query": "会员优惠折扣允许禁止叠加",
+    "gold": {
+      "conflict-a": 2,
+      "conflict-b": 2
+    },
+    "slice": "conflict",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "conflict-a"
+      ],
+      [
+        "conflict-b"
+      ]
+    ]
+  }
+]

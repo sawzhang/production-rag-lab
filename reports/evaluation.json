@@ -1,0 +1,1194 @@
+{
+  "configuration": {
+    "window": 20,
+    "budget": 20,
+    "top_k": 4,
+    "dense": "LSA statistical vectors",
+    "reranker": "token overlap",
+    "split": "holdout"
+  },
+  "query_count": 8,
+  "modes": {
+    "bm25": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "cmdb": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "conflict": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R03",
+          "slice": "entity",
+          "ranking": [
+            "case",
+            "phone128",
+            "phone256",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 1.284291036427021
+        },
+        {
+          "id": "R06",
+          "slice": "exact",
+          "ranking": [
+            "pay-error"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.4080412909388542
+        },
+        {
+          "id": "R09",
+          "slice": "chinese",
+          "ranking": [
+            "states",
+            "injection",
+            "price-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.591999851167202
+        },
+        {
+          "id": "R12",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "pay-error",
+            "order-timeout",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.7400834001600742
+        },
+        {
+          "id": "R15",
+          "slice": "cmdb",
+          "ranking": [
+            "graph-rule",
+            "order-timeout",
+            "incident2",
+            "menu-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.8716252632439137
+        },
+        {
+          "id": "R18",
+          "slice": "engineering",
+          "ranking": [
+            "menu-contract",
+            "incident2",
+            "menu-channel",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 1.234792172908783
+        },
+        {
+          "id": "R21",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident2",
+            "order-timeout",
+            "menu-contract",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.8818339556455612
+        },
+        {
+          "id": "R24",
+          "slice": "conflict",
+          "ranking": [
+            "conflict-a",
+            "conflict-b",
+            "price-rule",
+            "price-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 0.9522917680442333
+        }
+      ]
+    },
+    "dense": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "cmdb": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "conflict": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R03",
+          "slice": "entity",
+          "ranking": [
+            "case",
+            "phone256",
+            "phone128",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 4.644499626010656
+        },
+        {
+          "id": "R06",
+          "slice": "exact",
+          "ranking": [
+            "pay-error",
+            "menu-contract",
+            "order-timeout",
+            "numeric"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.5281663984060287
+        },
+        {
+          "id": "R09",
+          "slice": "chinese",
+          "ranking": [
+            "states",
+            "injection",
+            "price-rule",
+            "price-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.6508751325309277
+        },
+        {
+          "id": "R12",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "pay-error",
+            "order-timeout",
+            "price-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.3784171789884567
+        },
+        {
+          "id": "R15",
+          "slice": "cmdb",
+          "ranking": [
+            "graph-rule",
+            "incident2",
+            "order-timeout",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.2707502357661724
+        },
+        {
+          "id": "R18",
+          "slice": "engineering",
+          "ranking": [
+            "menu-contract",
+            "price-contract",
+            "incident1",
+            "incident2"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.404749859124422
+        },
+        {
+          "id": "R21",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident2",
+            "order-timeout",
+            "incident1",
+            "menu-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.287374809384346
+        },
+        {
+          "id": "R24",
+          "slice": "conflict",
+          "ranking": [
+            "conflict-b",
+            "conflict-a",
+            "price-contract",
+            "price-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.285249996930361
+        }
+      ]
+    },
+    "hybrid": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "cmdb": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "conflict": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R03",
+          "slice": "entity",
+          "ranking": [
+            "case",
+            "phone128",
+            "phone256",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.1827501952648163
+        },
+        {
+          "id": "R06",
+          "slice": "exact",
+          "ranking": [
+            "pay-error",
+            "menu-contract",
+            "order-timeout",
+            "numeric"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.763291820883751
+        },
+        {
+          "id": "R09",
+          "slice": "chinese",
+          "ranking": [
+            "states",
+            "injection",
+            "price-rule",
+            "price-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.75225006043911
+        },
+        {
+          "id": "R12",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "pay-error",
+            "order-timeout",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.873790916055441
+        },
+        {
+          "id": "R15",
+          "slice": "cmdb",
+          "ranking": [
+            "graph-rule",
+            "incident2",
+            "order-timeout",
+            "menu-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.0218753963708878
+        },
+        {
+          "id": "R18",
+          "slice": "engineering",
+          "ranking": [
+            "menu-contract",
+            "incident2",
+            "incident1",
+            "menu-channel"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.3638752065598965
+        },
+        {
+          "id": "R21",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident2",
+            "order-timeout",
+            "menu-contract",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.3035841770470142
+        },
+        {
+          "id": "R24",
+          "slice": "conflict",
+          "ranking": [
+            "conflict-a",
+            "conflict-b",
+            "price-contract",
+            "price-rule"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.2272920943796635
+        }
+      ]
+    },
+    "weighted": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "cmdb": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "conflict": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R03",
+          "slice": "entity",
+          "ranking": [
+            "case",
+            "phone128",
+            "phone256",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.9097083024680614
+        },
+        {
+          "id": "R06",
+          "slice": "exact",
+          "ranking": [
+            "pay-error",
+            "menu-contract",
+            "order-timeout",
+            "numeric"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.6582502759993076
+        },
+        {
+          "id": "R09",
+          "slice": "chinese",
+          "ranking": [
+            "states",
+            "injection",
+            "price-rule",
+            "price-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.7661658823490143
+        },
+        {
+          "id": "R12",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "pay-error",
+            "order-timeout",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 2.8871670365333557
+        },
+        {
+          "id": "R15",
+          "slice": "cmdb",
+          "ranking": [
+            "graph-rule",
+            "incident2",
+            "order-timeout",
+            "unknown"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.2667499035596848
+        },
+        {
+          "id": "R18",
+          "slice": "engineering",
+          "ranking": [
+            "menu-contract",
+            "incident2",
+            "incident1",
+            "menu-channel"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 4.457916598767042
+        },
+        {
+          "id": "R21",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident2",
+            "order-timeout",
+            "menu-contract",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.5215001553297043
+        },
+        {
+          "id": "R24",
+          "slice": "conflict",
+          "ranking": [
+            "conflict-b",
+            "conflict-a",
+            "price-rule",
+            "price-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.4704161807894707
+        }
+      ]
+    },
+    "rerank": {
+      "macro": {
+        "recall": 1.0,
+        "hit_rate": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "coverage": 1.0
+      },
+      "slices": {
+        "chinese": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "cmdb": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "conflict": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "diagnosis": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "engineering": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "entity": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "exact": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        },
+        "numeric": {
+          "n": 1,
+          "recall": 1.0,
+          "hit_rate": 1.0,
+          "mrr": 1.0,
+          "ndcg": 1.0,
+          "coverage": 1.0
+        }
+      },
+      "details": [
+        {
+          "id": "R03",
+          "slice": "entity",
+          "ranking": [
+            "case",
+            "phone128",
+            "phone256",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.954125102609396
+        },
+        {
+          "id": "R06",
+          "slice": "exact",
+          "ranking": [
+            "pay-error",
+            "conflict-a",
+            "conflict-b",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.363625146448612
+        },
+        {
+          "id": "R09",
+          "slice": "chinese",
+          "ranking": [
+            "states",
+            "injection",
+            "price-rule",
+            "case"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.1803748570382595
+        },
+        {
+          "id": "R12",
+          "slice": "numeric",
+          "ranking": [
+            "numeric",
+            "pay-error",
+            "order-timeout",
+            "case"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.2246247865259647
+        },
+        {
+          "id": "R15",
+          "slice": "cmdb",
+          "ranking": [
+            "graph-rule",
+            "incident2",
+            "menu-contract",
+            "order-timeout"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.256832715123892
+        },
+        {
+          "id": "R18",
+          "slice": "engineering",
+          "ranking": [
+            "menu-contract",
+            "incident2",
+            "menu-channel",
+            "incident1"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 4.024708643555641
+        },
+        {
+          "id": "R21",
+          "slice": "diagnosis",
+          "ranking": [
+            "incident2",
+            "menu-contract",
+            "order-timeout",
+            "fruit"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.296040929853916
+        },
+        {
+          "id": "R24",
+          "slice": "conflict",
+          "ranking": [
+            "conflict-a",
+            "conflict-b",
+            "price-rule",
+            "price-contract"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "hit_rate": 1.0,
+            "mrr": 1.0,
+            "ndcg": 1.0,
+            "coverage": 1.0
+          },
+          "union_recall": 1.0,
+          "fused_recall": 1.0,
+          "elapsed_ms": 3.2675000838935375
+        }
+      ]
+    }
+  }
+}

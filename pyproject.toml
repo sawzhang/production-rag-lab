@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+[project]
+name = "production-rag-lab"
+version = "0.1.0"
+description = "Reproducible Chinese enterprise RAG learning and safety laboratory"
+requires-python = ">=3.11,<3.15"
+dependencies = ["numpy>=2.2,<3", "scikit-learn>=1.6,<2"]
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<10", "pytest-cov>=6,<8", "ruff>=0.11,<1"]
+neural = ["sentence-transformers>=5,<6"]
+[project.scripts]
+rag-lab = "rag_lab.cli:main"
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag_lab"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+[tool.ruff]
+line-length = 100
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

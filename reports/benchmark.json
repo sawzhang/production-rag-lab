@@ -1,0 +1,15 @@
+{
+  "scope": "local synthetic in-process mixed requests, no network or neural GPU",
+  "python": "3.12.13",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "requests": 200,
+  "workers": 8,
+  "errors": 0,
+  "elapsed_seconds": 0.32394429203122854,
+  "throughput_rps": 617.3901035450867,
+  "latency_ms": {
+    "p50": 4.189499886706471,
+    "p95": 32.97536924947053,
+    "p99": 40.28708237688987
+  }
+}
