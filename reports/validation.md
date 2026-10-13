@@ -6,6 +6,7 @@
 - `ruff check .` 与 `ruff format --check .` 通过。
 - `pytest --cov=rag_lab --cov-fail-under=85`：**88 passed**，覆盖率 **98.07%**。包含 48 个附录 A 合同回归、安全竞态、恢复账本、指标算术和 CLI。
 - `uv build`：sdist 与 wheel 构建成功。
+- GitHub Actions 首次远端验证通过：[run 38392513316](https://github.com/sawzhang/production-rag-lab/actions/runs/38392513316)，Linux Python 3.11/3.12/3.13 三个任务全部成功（lint、88 项测试、覆盖率门槛与消融）。
 - 实际 CLI 报价：PHONE-A-256 / S01 / 到店 / 会员为 450000 分 CNY；数据完全合成，不代表真实售价。
 - 五路消融：BM25、LSA dense、RRF hybrid、weighted、overlap rerank，dev 16 题、holdout 8 题。开发集预算实验 6 组。
 - 压测：200 次 / 8 worker，**0 错误**；本机 P50 4.19 ms，P95 32.98 ms，P99 40.29 ms；约 617.4 请求/秒。
