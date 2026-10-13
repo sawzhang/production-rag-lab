@@ -9,12 +9,14 @@
 ## 可运行实验
 
 ```bash
-uv run pytest tests/test_neural.py
+uv sync --frozen --extra dev --extra neural
+uv run --no-sync rag-lab neural-evaluate
+RAG_LAB_REAL_MODELS=1 uv run --no-sync pytest tests/test_real_models.py -v
 ```
 
 ## 验证与观察
 
-检查神经适配器要求完整模型 revision，拒绝自动跟踪 main 和 trust_remote_code。适配器合同测试不等于下载模型的效果测试。
+检查神经适配器要求完整模型 revision，拒绝自动跟踪 main 和 trust_remote_code。适配器合同测试与真实权重测试分别执行，结果见 reports/neural-experiment.md。
 
 ## 进阶练习与边界
 

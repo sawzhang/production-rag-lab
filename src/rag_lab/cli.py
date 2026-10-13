@@ -132,9 +132,58 @@ def main():
     bench.add_argument("--requests", type=int, default=200)
     bench.add_argument("--workers", type=int, default=8)
     bench.add_argument("--output")
+    real = sub.add_parser("neural-evaluate", help="Run pinned real embedding and CrossEncoder")
+    real.add_argument(
+        "--data",
+        nargs="+",
+        default=["data/retrieval_queries.json", "data/neural_challenge_queries.json"],
+    )
+    real.add_argument("--profile")
+    real.add_argument("--output", default="reports/neural-evaluation.json")
+    real.add_argument("--local-files-only", action="store_true")
+    real_ask = sub.add_parser("neural-ask")
+    real_ask.add_argument("query")
+    real_ask.add_argument("--profile")
+    real_ask.add_argument("--local-files-only", action="store_true")
+    generation = sub.add_parser("generation-evaluate")
+    generation.add_argument("--pi-auth", help="Explicit Pi auth.json; never saved in results")
+    generation.add_argument("--profile")
+    generation.add_argument("--output", default="reports/deepseek-generation.json")
     sub.add_parser("capacity")
     args = parser.parse_args()
-    if args.command == "ask":
+    if args.command == "generation-evaluate":
+        from .neural_experiment import generation_evaluate
+
+        result = generation_evaluate(args.pi_auth, args.output, args.profile)
+        emit({"output": args.output, "completed": result["completed"], "passed": result["passed"]})
+    elif args.command == "neural-evaluate":
+        from .neural_experiment import neural_evaluate
+
+        result = neural_evaluate(args.data, args.output, args.profile, args.local_files_only)
+        emit(
+            {
+                "output": args.output,
+                "query_count": result["query_count"],
+                "metrics": {name: mode["macro"] for name, mode in result["modes"].items()},
+            }
+        )
+    elif args.command == "neural-ask":
+        from .neural_experiment import load_models, load_profile
+
+        profile = load_profile(args.profile)
+        dense, cross = load_models(profile, args.local_files_only)
+        store = corpus()
+        service = Service(store, retriever=Retriever(store, dense=dense, reranker=cross))
+        emit(
+            service.answer(
+                args.query,
+                ALICE,
+                AT,
+                mode="rerank",
+                rerank_timeout=profile["rerank_timeout_seconds"],
+            )
+        )
+    elif args.command == "ask":
         emit(Service(corpus()).answer(args.query, ALICE, AT, args.mode))
     elif args.command == "evaluate":
         emit(evaluate(args.data, args.split), args.output)

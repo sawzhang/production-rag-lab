@@ -9,13 +9,14 @@ requires-python = ">=3.11,<3.15"
 dependencies = ["numpy>=2.2,<3", "scikit-learn>=1.6,<2"]
 [project.optional-dependencies]
 dev = ["pytest>=8.3,<10", "pytest-cov>=6,<8", "ruff>=0.11,<1"]
-neural = ["sentence-transformers>=5,<6"]
+neural = ["sentence-transformers>=5,<6", "socksio>=1,<2"]
 [project.scripts]
 rag-lab = "rag_lab.cli:main"
 [tool.hatch.build.targets.wheel]
 packages = ["src/rag_lab"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["real_models: integration tests requiring pinned model weights"]
 [tool.ruff]
 line-length = 100
 [tool.ruff.lint]

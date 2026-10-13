@@ -23,7 +23,7 @@ CLI 输出查询计划、权威事实、来源片段和阶段 trace。默认可�
 
 - BM25 中文字/双字词法基线，保留连字符标识；LSA 统计 dense 向量与 exact cosine 搜索。
 - RRF、归一化加权融合、受候选预算限制的教学重排；各路、并集、融合截断 trace。
-- 可选真实 SentenceTransformer bi-encoder / CrossEncoder，要求 immutable 模型 revision；默认不下载模型。
+- 可选真实 BGE 中文 embedding / CrossEncoder，锁定 immutable revision 与 safetensors 哈希；默认离线基线不下载权重。
 - 精确 ID、整数分金额、严格/含等号范围、排除条件、时间与版本；只读报价、订单、菜单和两跳 CMDB 合成网关。
 - 模型前 ACL、取原文与输出前复核、父块授权、撤权竞态、幂等更新、乱序保护、跨恢复删除账本。
 - 缓存键隔离合同（身份/策略/语料/时间/模型），无共享答案缓存；结构保留分块、引用/事实校验接口。
@@ -42,6 +42,32 @@ uv run rag-lab capacity
 ```
 
 不要用 holdout 挑参数。数据中的近似问法仍可能相关，dev/holdout 只是实验流程示例，不是经过独立专家审核的盲测集。
+
+## 真实模型实验
+
+已接入 `BAAI/bge-small-zh-v1.5` 与 `BAAI/bge-reranker-base`，模型配置在 `src/rag_lab/model_config.json`。权重保存在 Hugging Face 缓存，公开仓库只保存配置、测试和结果。
+
+```bash
+uv sync --frozen --extra dev --extra neural
+# 首次运行下载锁定 revision 的权重；后续可加 --local-files-only
+HF_HUB_DISABLE_XET=1 uv run --no-sync rag-lab neural-evaluate
+RAG_LAB_REAL_MODELS=1 uv run --no-sync pytest -m real_models -v
+uv run --no-sync rag-lab neural-ask "payment captured 等于出杯完成吗" --local-files-only
+```
+
+使用 `uv run --no-sync` 防止默认命令移除刚安装的 neural extra。真实评测对照 BM25、LSA、BGE dense、BGE RRF、BGE weighted、相同候选的 overlap 和 CrossEncoder。新增 24 条预先固定的语义挑战题，合计 48 条题；dev/holdout 分层分别报告，未通过保留集挑参数。详情见 [真实实验报告](reports/neural-experiment.md) 和 [逐题结果](reports/neural-evaluation.json)。
+
+CPU float32、batch=8、最多 20 个候选、top 4、输入上限 512，短查询加官方建议的中文检索前缀。评测预热后计查询延迟，单列权重加载和文档编码成本；任何降级都会使该次效果评测失败。真实集成测试默认跳过，通过上述环境变量显式开启；常规 CI 保持不下载权重。
+
+## 可选 DeepSeek 端到端生成验证
+
+只向 DeepSeek 发送本仓库的合成、已授权证据，不发送真实业务数据。使用 `DEEPSEEK_API_KEY` 环境变量，或显式指定个人 Pi 的认证文件：
+
+```bash
+uv run --no-sync rag-lab generation-evaluate --pi-auth "$HOME/.pi/agent/auth.json"
+```
+
+凭据只在请求头中使用，不写入项目、日志或报告。8 个任务覆盖状态、必需证据组、冲突、无答案、精确金额、API 失败和注入。输出仅允许 JSON 事实和原文引用，程序独立检查字段、引用、关键否定与状态，不让同一个模型自行打分。结果及实际 token 用量在 `reports/deepseek-generation.json`。同一输入的已通过调用可从报告复用，避免重复计费；模型别名并非 immutable checkpoint，自由文字生成质量仍需额外人工评审。
 
 ## 结构
 
@@ -62,7 +88,7 @@ uv run rag-lab capacity
 
 见 [本次验证记录](reports/validation.md)，以及逐题 [消融结果](reports/evaluation.json) 和 [压测结果](reports/benchmark.json)。CI 在 Python 3.11/3.12/3.13 上运行 lint、测试、覆盖率与消融。
 
-LSA 不代表 BGE/Qwen 等模型；token overlap 不代表 CrossEncoder；exact 向量检索不代表 HNSW；JSON 账本不是分布式事务系统。真实数据库、真实模型、生成质量、OCR、CDC、GraphRAG、多模态和线上 A/B 的接入条件在 [生产准备清单](docs/production-readiness.md) 中逐项注明。自然语言规则仅覆盖明确示例；当前应用无法完整理解任意业务问法。
+LSA 不代表 BGE/Qwen 等模型；token overlap 不代表 CrossEncoder；exact 向量检索不代表 HNSW；JSON 账本不是分布式事务系统。真实模型在合成语料上的效果已测；真实业务数据、数据库、生成质量、OCR、CDC、GraphRAG、多模态和线上 A/B 的接入条件在 [生产准备清单](docs/production-readiness.md) 中逐项注明。自然语言规则仅覆盖明确示例；当前应用无法完整理解任意业务问法。
 
 ## 参考与选型
 

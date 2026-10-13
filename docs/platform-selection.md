@@ -17,3 +17,6 @@
 PostgreSQL 全文 ts_rank 并不是 BM25；RRF 是融合，不是 CrossEncoder；tenant 字段不是可信身份；preview 功能不能按 GA 验收；模型名称不是效果或许可保证。以上提醒应通过实际发行版和官方材料核对。
 
 真实模型实验使用 `uv sync --extra dev --extra neural`，然后显式构造 `NeuralDense(model_id, full_commit_sha)` 和 `NeuralReranker(model_id, full_commit_sha)`。模型权重缓存放仓库外，不提交。外部模型运行时需遵守来源数据允许的传输边界。
+
+
+已实际运行的基准模型配置及权重 SHA-256 见 `src/rag_lab/model_config.json`，效果与延迟见 `reports/neural-experiment.md`。该实验固定 CPU float32、512 输入、batch 8，语料为合成中文小库；没有进行多供应商模型选型或生产容量比较。

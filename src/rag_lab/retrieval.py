@@ -193,5 +193,8 @@ class Retriever:
             "degraded": degraded,
             "generation": self.store.generation,
             "model": self.dense.version,
+            "reranker": self.reranker.version
+            if hasattr(self.reranker, "version")
+            else type(self.reranker).__name__,
         }
         return evidence, trace

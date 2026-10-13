@@ -15,7 +15,7 @@ class Service:
         self.gateway = gateway or Gateway()
         self.retriever = retriever or Retriever(store)
 
-    def answer(self, query, identity, at, mode="hybrid"):
+    def answer(self, query, identity, at, mode="hybrid", rerank_timeout=0.2):
         start = time.perf_counter()
         self.store.visible(identity, at)  # Fail closed before any business or retrieval call.
         plan = parse(query)
@@ -75,7 +75,9 @@ class Service:
             ):
                 result["status"] = "no_answer"
             else:
-                documents, trace = self.retriever.search(query, identity, at, mode)
+                documents, trace = self.retriever.search(
+                    query, identity, at, mode, timeout=rerank_timeout
+                )
                 result["trace"].update(trace)
                 # Evidence is data only; no tool execution or arbitrary external URLs.
                 result["evidence"] = [

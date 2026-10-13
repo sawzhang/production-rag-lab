@@ -1,0 +1,345 @@
+{
+  "scope": "real DeepSeek extractive JSON generation on synthetic authorized bundles",
+  "profile": {
+    "profile": "bge-zh-cpu-v1",
+    "embedding": {
+      "id": "BAAI/bge-small-zh-v1.5",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620",
+      "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+      "license": "MIT",
+      "weights_sha256": "354763b9b1357bc9c44f62c6be2276321081ed2567773608c0d0785b61d5a026"
+    },
+    "reranker": {
+      "id": "BAAI/bge-reranker-base",
+      "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+      "license": "MIT",
+      "weights_sha256": "ced967c45fd1902eb92716c9ceeca7c95a936770ea9db611f5a841b926e33fbd"
+    },
+    "device": "cpu",
+    "dtype": "float32",
+    "max_length": 512,
+    "batch_size": 8,
+    "torch_threads": 4,
+    "window": 20,
+    "candidate_budget": 20,
+    "top_k": 4,
+    "rerank_timeout_seconds": 30
+  },
+  "query_count": 8,
+  "completed": 8,
+  "passed": 8,
+  "generator": {
+    "model_alias": "deepseek-flash",
+    "temperature": 0,
+    "thinking": "disabled",
+    "max_tokens": 768
+  },
+  "usage_totals": {
+    "prompt_tokens": 2804,
+    "completion_tokens": 312,
+    "total_tokens": 3116
+  },
+  "details": [
+    {
+      "id": "G01",
+      "query": "钱付了就代表饮料做好了吗",
+      "expected_status": "answered",
+      "required_fragments": [
+        "不等于出杯完成"
+      ],
+      "draft": {
+        "status": "answered",
+        "fact": null,
+        "citations": [
+          {
+            "id": "states",
+            "quote": "payment captured 表示支付扣款成功，不等于出杯完成。退款受理不等于资金到账"
+          }
+        ]
+      },
+      "validation_passed": true,
+      "task_passed": true,
+      "metadata": {
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 474,
+          "completion_tokens": 42,
+          "total_tokens": 516,
+          "prompt_tokens_details": {
+            "cached_tokens": 128
+          },
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 346
+        },
+        "elapsed_ms": 913.0717092193663
+      },
+      "input_evidence_ids": [
+        "states",
+        "unknown",
+        "price-rule",
+        "pay-error"
+      ],
+      "input_sha256": "4361b62c44293f2e5c02a592f0001b83f8691998af42df2048802f35aadea4ec"
+    },
+    {
+      "id": "G02",
+      "query": "退款受理资金到账",
+      "expected_status": "answered",
+      "required_fragments": [
+        "退款受理不等于资金到账"
+      ],
+      "draft": {
+        "status": "answered",
+        "fact": null,
+        "citations": [
+          {
+            "id": "states",
+            "quote": "退款受理不等于资金到账"
+          }
+        ]
+      },
+      "validation_passed": true,
+      "task_passed": true,
+      "metadata": {
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 472,
+          "completion_tokens": 28,
+          "total_tokens": 500,
+          "prompt_tokens_details": {
+            "cached_tokens": 128
+          },
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 344
+        },
+        "elapsed_ms": 1321.2517919018865
+      },
+      "input_evidence_ids": [
+        "states",
+        "price-rule",
+        "injection",
+        "pay-error"
+      ],
+      "input_sha256": "700a30e094ff4c1b45fb8145cd1ea1a2782e853fb2cf2ab60760ae4e431da857"
+    },
+    {
+      "id": "G03",
+      "query": "发布前检查价格菜单接口契约",
+      "expected_status": "answered",
+      "required_fragments": [
+        "菜单渠道",
+        "价格币种"
+      ],
+      "draft": {
+        "status": "answered",
+        "fact": null,
+        "citations": [
+          {
+            "id": "menu-contract",
+            "quote": "发布前检查菜单渠道、生效版本、可售、同步水位接口"
+          },
+          {
+            "id": "price-contract",
+            "quote": "发布前检查价格币种、规格、会员、有效期与订单快照接口"
+          }
+        ]
+      },
+      "validation_passed": true,
+      "task_passed": true,
+      "metadata": {
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 470,
+          "completion_tokens": 66,
+          "total_tokens": 536,
+          "prompt_tokens_details": {
+            "cached_tokens": 128
+          },
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 342
+        },
+        "elapsed_ms": 1012.1775418519974
+      },
+      "input_evidence_ids": [
+        "menu-contract",
+        "price-contract",
+        "unknown",
+        "price-rule"
+      ],
+      "input_sha256": "c0ee55712212807e4dfb70aa81c0af0c5e12ddc7eb7dc0a7e2c8e4fbb6d75b48"
+    },
+    {
+      "id": "G04",
+      "query": "优惠规则会员折扣叠加",
+      "expected_status": "conflict",
+      "required_fragments": [
+        "允许叠加",
+        "禁止叠加"
+      ],
+      "draft": {
+        "status": "conflict",
+        "fact": null,
+        "citations": [
+          {
+            "id": "conflict-a",
+            "quote": "会员折扣允许叠加"
+          },
+          {
+            "id": "conflict-b",
+            "quote": "会员折扣禁止叠加"
+          }
+        ]
+      },
+      "validation_passed": true,
+      "task_passed": true,
+      "metadata": {
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 449,
+          "completion_tokens": 53,
+          "total_tokens": 502,
+          "prompt_tokens_details": {
+            "cached_tokens": 128
+          },
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 321
+        },
+        "elapsed_ms": 842.1025830321014
+      },
+      "input_evidence_ids": [
+        "conflict-a",
+        "conflict-b",
+        "price-rule",
+        "price-contract"
+      ],
+      "input_sha256": "125e214aafec3dcb91a3aa6f57efa5d225e2559f59dda9e634198ffb0eb23a4b"
+    },
+    {
+      "id": "G05",
+      "query": "ERR-PAY-999 怎么修",
+      "expected_status": "insufficient",
+      "required_fragments": [],
+      "draft": {
+        "status": "insufficient",
+        "fact": null,
+        "citations": []
+      },
+      "validation_passed": true,
+      "task_passed": true,
+      "metadata": {
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 206,
+          "completion_tokens": 15,
+          "total_tokens": 221,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 206
+        },
+        "elapsed_ms": 773.5513751395047
+      },
+      "input_evidence_ids": [],
+      "input_sha256": "7df1fca09e6fad9015b5bf843c05616cd00299fb9b386b878084632ddcfc9479"
+    },
+    {
+      "id": "G06",
+      "query": "PHONE-A-256 S01 到店会员价多少钱",
+      "expected_status": "answered",
+      "required_fragments": [],
+      "draft": {
+        "status": "answered",
+        "fact": {
+          "variant_id": "PHONE-A-256",
+          "amount_cents": 450000,
+          "currency": "CNY",
+          "store": "S01",
+          "channel": "到店",
+          "price_type": "member",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "source": "synthetic-price-api/v1"
+        },
+        "citations": []
+      },
+      "validation_passed": true,
+      "task_passed": true,
+      "metadata": {
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 290,
+          "completion_tokens": 78,
+          "total_tokens": 368,
+          "prompt_tokens_details": {
+            "cached_tokens": 128
+          },
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 162
+        },
+        "elapsed_ms": 1047.7372501045465
+      },
+      "input_evidence_ids": [],
+      "input_sha256": "52f7e41a0eff8161b280185906d96dc05e15959a208fec2f47eed52adcf70e78"
+    },
+    {
+      "id": "G07",
+      "query": "PHONE-A-256 S01 到店多少钱",
+      "expected_status": "insufficient",
+      "required_fragments": [],
+      "draft": {
+        "status": "insufficient",
+        "fact": null,
+        "citations": []
+      },
+      "validation_passed": true,
+      "task_passed": true,
+      "metadata": {
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 209,
+          "completion_tokens": 15,
+          "total_tokens": 224,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 209
+        },
+        "elapsed_ms": 579.0826249867678
+      },
+      "input_evidence_ids": [],
+      "input_sha256": "1e4318359b9d0c1b7ae0b843781d2b6c2db5bfd6786f3ff7396818e54e5c0b13"
+    },
+    {
+      "id": "G08",
+      "query": "当前订单是否已完成",
+      "expected_status": "insufficient",
+      "required_fragments": [],
+      "draft": {
+        "status": "insufficient",
+        "fact": null,
+        "citations": []
+      },
+      "validation_passed": true,
+      "task_passed": true,
+      "metadata": {
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 234,
+          "completion_tokens": 15,
+          "total_tokens": 249,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 234
+        },
+        "elapsed_ms": 993.2382092811167
+      },
+      "input_evidence_ids": [
+        "injection"
+      ],
+      "input_sha256": "02c13f280e4168c166fb9fb403bb8bc28bc01063ce29d7c8f0d0056da0a52453"
+    }
+  ]
+}

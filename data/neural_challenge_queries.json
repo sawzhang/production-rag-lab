@@ -1,0 +1,430 @@
+[
+  {
+    "id": "N01",
+    "query": "钱扣掉了就说明饮料已经做好了吗",
+    "gold": {
+      "states": 2
+    },
+    "slice": "semantic_state",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "states"
+      ]
+    ]
+  },
+  {
+    "id": "N02",
+    "query": "平台说退款申请收到了，钱是不是已经回到银行卡",
+    "gold": {
+      "states": 2
+    },
+    "slice": "semantic_state",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "states"
+      ]
+    ]
+  },
+  {
+    "id": "N03",
+    "query": "顾客付款回调一直没等到，要核对哪里",
+    "gold": {
+      "pay-error": 2
+    },
+    "slice": "semantic_diagnosis",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "pay-error"
+      ]
+    ]
+  },
+  {
+    "id": "N04",
+    "query": "订单系统第二版等待下游太久，要查什么记录",
+    "gold": {
+      "order-timeout": 2
+    },
+    "slice": "semantic_diagnosis",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "N05",
+    "query": "店里收银能下单，线上却说卖完了",
+    "gold": {
+      "menu-channel": 2
+    },
+    "slice": "semantic_menu",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "menu-channel"
+      ]
+    ]
+  },
+  {
+    "id": "N06",
+    "query": "原料还有但配送入口不可点，应该核对什么",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "semantic_menu",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "N07",
+    "query": "新版本上线前要覆盖菜单的哪些接口",
+    "gold": {
+      "menu-contract": 2
+    },
+    "slice": "semantic_engineering",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "N08",
+    "query": "发版前怎么验证报价里的币种和客户资格",
+    "gold": {
+      "price-contract": 2
+    },
+    "slice": "semantic_engineering",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "price-contract"
+      ]
+    ]
+  },
+  {
+    "id": "N09",
+    "query": "依赖清单一个调用方也没有，就可以删除服务吗",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "semantic_cmdb",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "N10",
+    "query": "同名服务在沙箱和线上可以当成同一个对象吗",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "semantic_cmdb",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "N11",
+    "query": "上一次事故也表现为超时，这次能沿用根因结论吗",
+    "gold": {
+      "incident1": 2,
+      "order-timeout": 1
+    },
+    "slice": "semantic_diagnosis",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "incident1"
+      ],
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "N12",
+    "query": "缺少消息处理日志就表示消息丢了吗",
+    "gold": {
+      "incident2": 2,
+      "order-timeout": 1
+    },
+    "slice": "semantic_diagnosis",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "incident2"
+      ],
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "N13",
+    "query": "还不知道配料表的饮品可称为无花生吗",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "negation",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "N14",
+    "query": "优惠要求多于两件，恰好两件行不行",
+    "gold": {
+      "numeric": 2
+    },
+    "slice": "numeric",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "numeric"
+      ]
+    ]
+  },
+  {
+    "id": "N15",
+    "query": "售价上限含等号和不含等号怎么区分",
+    "gold": {
+      "numeric": 2
+    },
+    "slice": "numeric",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "numeric"
+      ]
+    ]
+  },
+  {
+    "id": "N16",
+    "query": "不同取餐方式和额外加料怎么影响会员报价",
+    "gold": {
+      "price-rule": 2
+    },
+    "slice": "semantic_price",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "price-rule"
+      ]
+    ]
+  },
+  {
+    "id": "N17",
+    "query": "我买的是苹果品牌的保护壳，兼容哪些型号",
+    "gold": {
+      "case": 2
+    },
+    "slice": "entity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "case"
+      ]
+    ]
+  },
+  {
+    "id": "N18",
+    "query": "想买一千克红富士，不是电子设备",
+    "gold": {
+      "fruit": 2
+    },
+    "slice": "entity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "fruit"
+      ]
+    ]
+  },
+  {
+    "id": "N19",
+    "query": "苹果标准款较大存储容量是哪一个规格",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "entity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "N20",
+    "query": "较小容量的苹果手机规格编号是什么",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "entity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "N21",
+    "query": "ERR-PAY-042 和订单等待不是同一阶段，前者怎么核验",
+    "gold": {
+      "pay-error": 2
+    },
+    "slice": "exact",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "pay-error"
+      ]
+    ]
+  },
+  {
+    "id": "N22",
+    "query": "svc-order-v2 卡住时先看哪个下游和跟踪信息",
+    "gold": {
+      "order-timeout": 2
+    },
+    "slice": "exact",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "N23",
+    "query": "总结两次菜单问题里的配置和同步教训",
+    "gold": {
+      "incident1": 2,
+      "incident2": 2
+    },
+    "slice": "multi",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "incident1"
+      ],
+      [
+        "incident2"
+      ]
+    ]
+  },
+  {
+    "id": "N24",
+    "query": "两份优惠政策对同时享受会员折扣意见相反",
+    "gold": {
+      "conflict-a": 2,
+      "conflict-b": 2
+    },
+    "slice": "conflict",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "conflict-a"
+      ],
+      [
+        "conflict-b"
+      ]
+    ]
+  }
+]

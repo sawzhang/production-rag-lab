@@ -13,3 +13,7 @@
 - [Milvus](https://milvus.io/docs)、[Qdrant](https://qdrant.tech/documentation/)、[Weaviate](https://docs.weaviate.io/)、[pgvector](https://github.com/pgvector/pgvector)、[Azure AI Search](https://learn.microsoft.com/en-us/azure/search/)
 
 运行时接口核对：2026-10-13 阅读 Stanford BM25、Sentence Transformers retrieve/rerank、pgvector 官方说明。产品比较仅作为核对任务，不宣布其他产品功能已在本仓库部署验证。
+
+真实模型接口与 query 前缀依据：[BGE 中文 embedding 模型卡](https://huggingface.co/BAAI/bge-small-zh-v1.5)、[BGE reranker 模型卡](https://huggingface.co/BAAI/bge-reranker-base)。两者固定 SHA 在模型配置中；归一化 cosine 和重排分数仅用于排序，不作为正确概率。
+
+DeepSeek JSON 生成实验使用 [官方 OpenAI 兼容接口](https://api-docs.deepseek.com/)，模型别名 `deepseek-flash`、thinking disabled；记录服务实际返回的模型名和 token 用量。

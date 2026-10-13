@@ -1,0 +1,25 @@
+{
+  "profile": "bge-zh-cpu-tight-v1",
+  "embedding": {
+    "id": "BAAI/bge-small-zh-v1.5",
+    "revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "query_prefix": "为这个句子生成表示以用于检索相关文章：",
+    "license": "MIT",
+    "weights_sha256": "354763b9b1357bc9c44f62c6be2276321081ed2567773608c0d0785b61d5a026"
+  },
+  "reranker": {
+    "id": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "license": "MIT",
+    "weights_sha256": "ced967c45fd1902eb92716c9ceeca7c95a936770ea9db611f5a841b926e33fbd"
+  },
+  "device": "cpu",
+  "dtype": "float32",
+  "max_length": 512,
+  "batch_size": 8,
+  "torch_threads": 4,
+  "window": 5,
+  "candidate_budget": 8,
+  "top_k": 4,
+  "rerank_timeout_seconds": 30
+}
