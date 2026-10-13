@@ -2,12 +2,14 @@ import math
 import re
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, TimeoutError
+from dataclasses import asdict
 
 from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import normalize
 
 from .contracts import Candidate
+from .routing import VERSION, constrain, infer_scope, matches
 
 
 def tokens(text):
@@ -149,13 +151,22 @@ class Retriever:
     def search(
         self, query, identity, at, mode="hybrid", window=20, budget=20, top_k=4, timeout=0.2
     ):
-        if mode not in {"bm25", "dense", "hybrid", "weighted", "rerank"}:
+        if mode not in {"bm25", "dense", "hybrid", "weighted", "rerank", "constrained"}:
             raise ValueError("unknown retrieval mode")
         if min(window, budget, top_k) < 1 or timeout <= 0:
             raise ValueError("invalid budget")
+        generation = self.store.generation
         allowed = self.store.visible(identity, at)
-        lexical = bm25(query, allowed, window) if mode != "dense" else []
-        dense = self.dense.search(query, allowed, window) if mode != "bm25" else []
+        scope = infer_scope(query) if mode == "constrained" else None
+        scoped_query = query
+        authorized_count = len(allowed)
+        if scope:
+            allowed = constrain(allowed, scope)
+            if scope.expansion:
+                scoped_query = query + " " + scope.expansion
+        scoped_ids = {d.id for d in allowed}
+        lexical = bm25(scoped_query, allowed, window) if mode != "dense" else []
+        dense = self.dense.search(scoped_query, allowed, window) if mode != "bm25" else []
         union = sorted({c.id for c in lexical + dense})
         if mode == "bm25":
             fused = lexical
@@ -166,9 +177,14 @@ class Retriever:
         else:
             fused = rrf([lexical, dense])
         shortlist = fused[:budget]
-        documents = [d for c in shortlist if (d := self.store.fetch(c.id, identity, at))]
+        documents = [
+            d
+            for c in shortlist
+            if (d := self.store.fetch(c.id, identity, at))
+            and (not scope or (d.id in scoped_ids and matches(d, scope)))
+        ]
         degraded = False
-        if mode == "rerank" and len(documents) > 1:
+        if mode in {"rerank", "constrained"} and len(documents) > 1:
             try:
                 ranked = bounded_rerank(self.reranker, query, documents, timeout)
                 ids = {d.id for d in documents}
@@ -180,11 +196,25 @@ class Retriever:
         evidence = []
         for c in shortlist:
             d = self.store.fetch(c.id, identity, at)
-            if d and d.id not in {x.id for x in evidence}:
+            if (
+                d
+                and (not scope or (d.id in scoped_ids and matches(d, scope)))
+                and d.id not in {x.id for x in evidence}
+            ):
                 evidence.append(d)
             if len(evidence) >= top_k:
                 break
+        scope_stale = bool(scope and scope.extreme and self.store.generation != generation)
+        if scope_stale:
+            evidence = []
         trace = {
+            "scope": asdict(scope) if scope else None,
+            "scope_version": VERSION if scope else None,
+            "scope_stale": scope_stale,
+            "authorized_count": authorized_count,
+            "scoped_ids": sorted(scoped_ids),
+            "model_query": scoped_query,
+            "rerank_query": query,
             "lexical": [c.id for c in lexical],
             "dense": [c.id for c in dense],
             "union": union,

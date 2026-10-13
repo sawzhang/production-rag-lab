@@ -95,3 +95,23 @@ def test_real_weight_integrity_and_repeatability(models):
     assert np.allclose([c.score for c in a], [c.score for c in b], atol=1e-6)
     assert str(next(dense.model.parameters()).dtype) == "torch.float32"
     assert str(next(cross.model.model.parameters()).dtype) == "torch.float32"
+
+
+def test_real_constrained_routes_fix_capacity_menu_environment_without_acl_bypass(models):
+    dense, cross = models
+    store = corpus()
+    retriever = Retriever(store, dense=dense, reranker=cross)
+    docs, trace = retriever.search(
+        "较小容量的苹果手机规格编号是什么", ALICE, AT, mode="constrained", timeout=30
+    )
+    assert [d.id for d in docs] == ["phone128"] and trace["scope"]["resolved_capacity"] == 128
+    docs, trace = retriever.search(
+        "原料还有但配送入口不可点，应该核对什么", ALICE, AT, mode="constrained", timeout=30
+    )
+    assert {d.id for d in docs} == {"menu-channel", "menu-contract"} and not trace["degraded"]
+    assert not {"unknown", "injection", "other-tenant"} & set(trace["union"])
+    docs, _ = retriever.search(
+        "同名服务在沙箱和线上可以当成同一个对象吗", ALICE, AT, mode="constrained", timeout=30
+    )
+    assert [d.id for d in docs] == ["graph-rule"]
+    assert retriever.search("苹果512GB手机", ALICE, AT, mode="constrained", timeout=30)[0] == []

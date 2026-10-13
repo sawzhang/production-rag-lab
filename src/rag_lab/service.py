@@ -15,7 +15,7 @@ class Service:
         self.gateway = gateway or Gateway()
         self.retriever = retriever or Retriever(store)
 
-    def answer(self, query, identity, at, mode="hybrid", rerank_timeout=0.2):
+    def answer(self, query, identity, at, mode="constrained", rerank_timeout=0.2):
         start = time.perf_counter()
         self.store.visible(identity, at)  # Fail closed before any business or retrieval call.
         plan = parse(query)
@@ -30,7 +30,7 @@ class Service:
             result["status"] = "denied"
         elif plan.missing:
             result["status"] = "clarification"
-        elif plan.route in {"price", "order", "menu", "cmdb"}:
+        elif plan.route in {"price", "order", "menu", "cmdb", "catalogue"}:
             try:
                 if plan.route == "price":
                     id = next(x for x in plan.ids if x.startswith(("PHONE-", "FRUIT-")))
@@ -41,7 +41,30 @@ class Service:
                         "外送" if "外送" in query else "到店",
                         at,
                         member="会员" in query,
+                        capacity_values=plan.constraints["retrieval_scope"]["capacity_values"],
+                        capacity_operator=plan.constraints["retrieval_scope"]["capacity_operator"]
+                        or "in",
+                        currency=plan.constraints["currency"],
+                        brand=plan.constraints["retrieval_scope"]["brand"],
+                        exclude_style=plan.constraints["retrieval_scope"]["exclude_style"],
                     )
+                elif plan.route == "catalogue":
+                    scope = plan.constraints["retrieval_scope"]
+                    fact = self.gateway.catalogue(
+                        identity,
+                        at,
+                        capacities=scope["capacity_values"],
+                        operator=scope["capacity_operator"] or "in",
+                        extreme=scope["extreme"],
+                        exclude=scope["exclude_style"],
+                        maximum=plan.constraints.get("maximum_cents"),
+                        currency=plan.constraints["currency"],
+                        amount_operator=plan.constraints.get("amount_operator", "lt"),
+                        variant_ids=[x for x in plan.ids if x.startswith("PHONE-")],
+                        brand=scope["brand"],
+                    )
+                    if not fact["variants"]:
+                        result["status"] = "no_answer"
                 elif plan.route == "order":
                     fact = self.gateway.order(identity, next(x for x in plan.ids if x.isdigit()))
                 elif plan.route == "menu":
@@ -59,7 +82,7 @@ class Service:
                         )
                 else:
                     fact = self.gateway.dependencies(
-                        identity, "menu", "prod" if "生产" in query else "test"
+                        identity, plan.constraints["service"], plan.constraints["environment"]
                     )
                 result["fact"] = fact
             except (TimeoutError, LookupError):
@@ -69,7 +92,7 @@ class Service:
         else:
             exact_ids = [x for x in plan.ids if x.startswith("ERR-")]
             if exact_ids and not any(
-                x in d.title or x in d.text
+                (x in d.entities if mode == "constrained" else x in d.title or x in d.text)
                 for x in exact_ids
                 for d in self.store.visible(identity, at)
             ):
@@ -96,6 +119,10 @@ class Service:
                         claims.setdefault(d.claim, set()).add(d.value)
                 if any(len(values) > 1 for values in claims.values()):
                     result["status"] = "conflict"
+                elif trace.get("scope_stale"):
+                    result["status"] = "unavailable"
+                elif trace.get("scope") and trace["scope"]["status"] == "clarification":
+                    result["status"] = "clarification"
                 elif not documents:
                     result["status"] = "no_answer"
         result["trace"]["elapsed_ms"] = (time.perf_counter() - start) * 1000

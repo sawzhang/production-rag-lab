@@ -113,3 +113,16 @@ def test_generation_api_failures_are_recorded_without_false_success(
     assert result["completed"] == 8 and result["passed"] == 0
     assert result["usage_totals"]["total_tokens"] == 0
     assert all(r["draft"] is None and not r["validation_passed"] for r in result["details"])
+
+
+def test_constrained_ablation_records_code_and_scoped_candidate_pool(fake_models, tmp_path):
+    rows = json.loads(open("data/neural_challenge_queries.json").read())
+    rows = [r for r in rows if r["id"] in {"N06", "N10", "N20"}]
+    path = tmp_path / "queries.json"
+    path.write_text(json.dumps(rows))
+    r = experiment.neural_evaluate([path], include_constrained=True)
+    assert len(r["modes"]) == 8 and len(r["routing_source_sha256"]) == 5
+    d = {x["id"]: x for x in r["modes"]["constrained_cross_encoder"]["details"]}
+    assert d["N20"]["ranking"] == ["phone128"] and d["N10"]["ranking"] == ["graph-rule"]
+    assert set(d["N06"]["scoped_ids"]) == {"menu-channel", "menu-contract"}
+    assert r["paired_comparisons"][-1]["left"] == "constrained_cross_encoder"

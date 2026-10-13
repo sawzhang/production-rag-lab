@@ -1,0 +1,1434 @@
+{
+  "input_sha256": "a8b8cef1208aaf1c0ac06533110b9b3a2b4b7ad4b639d10e57bc0b10c5d0ae8e",
+  "scope": "typed authority/clarification tasks; excluded from retrieval recall",
+  "query_count": 24,
+  "passed": 24,
+  "details": [
+    {
+      "id": "T01",
+      "query": "较小容量的苹果手机规格编号是什么",
+      "expected_route": "catalogue",
+      "expected_status": "ok",
+      "expected_variants": [
+        "PHONE-A-128"
+      ],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "较小容量的苹果手机规格编号是什么",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": "Apple",
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": "min",
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "variants": [
+            {
+              "id": "PHONE-A-128",
+              "category": "smartphone",
+              "capacity_gb": 128,
+              "style": "standard",
+              "brand": "Apple",
+              "currency": "CNY"
+            }
+          ],
+          "selection": {
+            "capacity_operator": "in",
+            "capacity_values": [],
+            "extreme": "min",
+            "resolved_capacity_gb": 128,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 4,
+            "brand": "Apple",
+            "excluded_style": null,
+            "amount_cents": null,
+            "amount_operator": "lt",
+            "currency": "CNY",
+            "exact_variant_ids": []
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.7521249353885651
+        }
+      }
+    },
+    {
+      "id": "T02",
+      "query": "苹果手机最小容量是多少",
+      "expected_route": "catalogue",
+      "expected_status": "ok",
+      "expected_variants": [
+        "PHONE-A-128"
+      ],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "苹果手机最小容量是多少",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": "Apple",
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": "min",
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "variants": [
+            {
+              "id": "PHONE-A-128",
+              "category": "smartphone",
+              "capacity_gb": 128,
+              "style": "standard",
+              "brand": "Apple",
+              "currency": "CNY"
+            }
+          ],
+          "selection": {
+            "capacity_operator": "in",
+            "capacity_values": [],
+            "extreme": "min",
+            "resolved_capacity_gb": 128,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 4,
+            "brand": "Apple",
+            "excluded_style": null,
+            "amount_cents": null,
+            "amount_operator": "lt",
+            "currency": "CNY",
+            "exact_variant_ids": []
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.061625149101018906
+        }
+      }
+    },
+    {
+      "id": "T03",
+      "query": "苹果手机256GB规格，不要Pro",
+      "expected_route": "catalogue",
+      "expected_status": "ok",
+      "expected_variants": [
+        "PHONE-A-256",
+        "PHONE-B-256"
+      ],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "苹果手机256GB规格，不要Pro",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": "Apple",
+              "capacity_operator": "in",
+              "capacity_values": [
+                256
+              ],
+              "extreme": null,
+              "exclude_style": "Pro"
+            },
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "variants": [
+            {
+              "id": "PHONE-A-256",
+              "category": "smartphone",
+              "capacity_gb": 256,
+              "style": "standard",
+              "brand": "Apple",
+              "currency": "CNY"
+            },
+            {
+              "id": "PHONE-B-256",
+              "category": "smartphone",
+              "capacity_gb": 256,
+              "style": "standard",
+              "brand": "Apple",
+              "currency": "CNY"
+            }
+          ],
+          "selection": {
+            "capacity_operator": "in",
+            "capacity_values": [
+              256
+            ],
+            "extreme": null,
+            "resolved_capacity_gb": null,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 2,
+            "brand": "Apple",
+            "excluded_style": "Pro",
+            "amount_cents": null,
+            "amount_operator": "lt",
+            "currency": "CNY",
+            "exact_variant_ids": []
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.058374833315610886
+        }
+      }
+    },
+    {
+      "id": "T04",
+      "query": "找低于5000元的256GB手机",
+      "expected_route": "catalogue",
+      "expected_status": "ok",
+      "expected_variants": [
+        "PHONE-B-256"
+      ],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "找低于5000元的256GB手机",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "operator": "lt",
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": null,
+              "capacity_operator": "in",
+              "capacity_values": [
+                256
+              ],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "maximum_cents": 500000,
+            "amount_operator": "lt",
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "variants": [
+            {
+              "id": "PHONE-B-256",
+              "category": "smartphone",
+              "capacity_gb": 256,
+              "style": "standard",
+              "brand": "Apple",
+              "currency": "CNY"
+            }
+          ],
+          "selection": {
+            "capacity_operator": "in",
+            "capacity_values": [
+              256
+            ],
+            "extreme": null,
+            "resolved_capacity_gb": null,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 1,
+            "brand": null,
+            "excluded_style": null,
+            "amount_cents": 500000,
+            "amount_operator": "lt",
+            "currency": "CNY",
+            "exact_variant_ids": []
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.3326251171529293
+        }
+      }
+    },
+    {
+      "id": "T05",
+      "query": "不高于5000元的256GB手机",
+      "expected_route": "catalogue",
+      "expected_status": "ok",
+      "expected_variants": [
+        "PHONE-A-256",
+        "PHONE-B-256"
+      ],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "不高于5000元的256GB手机",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "operator": "le",
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": null,
+              "capacity_operator": "in",
+              "capacity_values": [
+                256
+              ],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "maximum_cents": 500000,
+            "amount_operator": "le",
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "variants": [
+            {
+              "id": "PHONE-A-256",
+              "category": "smartphone",
+              "capacity_gb": 256,
+              "style": "standard",
+              "brand": "Apple",
+              "currency": "CNY"
+            },
+            {
+              "id": "PHONE-B-256",
+              "category": "smartphone",
+              "capacity_gb": 256,
+              "style": "standard",
+              "brand": "Apple",
+              "currency": "CNY"
+            }
+          ],
+          "selection": {
+            "capacity_operator": "in",
+            "capacity_values": [
+              256
+            ],
+            "extreme": null,
+            "resolved_capacity_gb": null,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 2,
+            "brand": null,
+            "excluded_style": null,
+            "amount_cents": 500000,
+            "amount_operator": "le",
+            "currency": "CNY",
+            "exact_variant_ids": []
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.05512498319149017
+        }
+      }
+    },
+    {
+      "id": "T06",
+      "query": "容量比256GB小的苹果手机",
+      "expected_route": "catalogue",
+      "expected_status": "ok",
+      "expected_variants": [
+        "PHONE-A-128"
+      ],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "容量比256GB小的苹果手机",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": "Apple",
+              "capacity_operator": "lt",
+              "capacity_values": [
+                256
+              ],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "variants": [
+            {
+              "id": "PHONE-A-128",
+              "category": "smartphone",
+              "capacity_gb": 128,
+              "style": "standard",
+              "brand": "Apple",
+              "currency": "CNY"
+            }
+          ],
+          "selection": {
+            "capacity_operator": "lt",
+            "capacity_values": [
+              256
+            ],
+            "extreme": null,
+            "resolved_capacity_gb": null,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 1,
+            "brand": "Apple",
+            "excluded_style": null,
+            "amount_cents": null,
+            "amount_operator": "lt",
+            "currency": "CNY",
+            "exact_variant_ids": []
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.04512490704655647
+        }
+      }
+    },
+    {
+      "id": "T07",
+      "query": "不超过128GB的苹果手机",
+      "expected_route": "catalogue",
+      "expected_status": "ok",
+      "expected_variants": [
+        "PHONE-A-128"
+      ],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "不超过128GB的苹果手机",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": "Apple",
+              "capacity_operator": "le",
+              "capacity_values": [
+                128
+              ],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "variants": [
+            {
+              "id": "PHONE-A-128",
+              "category": "smartphone",
+              "capacity_gb": 128,
+              "style": "standard",
+              "brand": "Apple",
+              "currency": "CNY"
+            }
+          ],
+          "selection": {
+            "capacity_operator": "le",
+            "capacity_values": [
+              128
+            ],
+            "extreme": null,
+            "resolved_capacity_gb": null,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 1,
+            "brand": "Apple",
+            "excluded_style": null,
+            "amount_cents": null,
+            "amount_operator": "lt",
+            "currency": "CNY",
+            "exact_variant_ids": []
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.044667162001132965
+        }
+      }
+    },
+    {
+      "id": "T08",
+      "query": "苹果512GB手机的规格",
+      "expected_route": "catalogue",
+      "expected_status": "no_answer",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "苹果512GB手机的规格",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": "Apple",
+              "capacity_operator": "in",
+              "capacity_values": [
+                512
+              ],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "no_answer",
+        "fact": {
+          "variants": [],
+          "selection": {
+            "capacity_operator": "in",
+            "capacity_values": [
+              512
+            ],
+            "extreme": null,
+            "resolved_capacity_gb": null,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 0,
+            "brand": "Apple",
+            "excluded_style": null,
+            "amount_cents": null,
+            "amount_operator": "lt",
+            "currency": "CNY",
+            "exact_variant_ids": []
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.04312489181756973
+        }
+      }
+    },
+    {
+      "id": "T09",
+      "query": "PHONE-A-128的256GB手机规格",
+      "expected_route": "catalogue",
+      "expected_status": "no_answer",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "PHONE-A-128的256GB手机规格",
+          "route": "catalogue",
+          "ids": [
+            "PHONE-A-128"
+          ],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": null,
+              "capacity_operator": "in",
+              "capacity_values": [
+                256
+              ],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "no_answer",
+        "fact": {
+          "variants": [],
+          "selection": {
+            "capacity_operator": "in",
+            "capacity_values": [
+              256
+            ],
+            "extreme": null,
+            "resolved_capacity_gb": null,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 0,
+            "brand": null,
+            "excluded_style": null,
+            "amount_cents": null,
+            "amount_operator": "lt",
+            "currency": "CNY",
+            "exact_variant_ids": [
+              "PHONE-A-128"
+            ]
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.052459072321653366
+        }
+      }
+    },
+    {
+      "id": "T10",
+      "query": "最小容量是哪一个",
+      "expected_route": "documents",
+      "expected_status": "clarification",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "最小容量是哪一个",
+          "route": "documents",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": null,
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            }
+          },
+          "missing": [
+            "comparison_entity_scope"
+          ]
+        },
+        "status": "clarification",
+        "fact": null,
+        "evidence": [],
+        "trace": {
+          "route": "documents",
+          "elapsed_ms": 0.03758398815989494
+        }
+      }
+    },
+    {
+      "id": "T11",
+      "query": "苹果手机最小和最大容量是哪一个",
+      "expected_route": "catalogue",
+      "expected_status": "clarification",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "苹果手机最小和最大容量是哪一个",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": "Apple",
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": [
+            "comparison_logic"
+          ]
+        },
+        "status": "clarification",
+        "fact": null,
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.0427919439971447
+        }
+      }
+    },
+    {
+      "id": "T12",
+      "query": "去年苹果手机最小容量是什么",
+      "expected_route": "catalogue",
+      "expected_status": "clarification",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "去年苹果手机最小容量是什么",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": "Apple",
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": "min",
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": [
+            "historical_catalogue_source"
+          ]
+        },
+        "status": "clarification",
+        "fact": null,
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.03970880061388016
+        }
+      }
+    },
+    {
+      "id": "T13",
+      "query": "苹果128GB 256GB手机规格",
+      "expected_route": "catalogue",
+      "expected_status": "clarification",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "苹果128GB 256GB手机规格",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": "Apple",
+              "capacity_operator": "in",
+              "capacity_values": [
+                128,
+                256
+              ],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": [
+            "capacity_logic"
+          ]
+        },
+        "status": "clarification",
+        "fact": null,
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.04283338785171509
+        }
+      }
+    },
+    {
+      "id": "T14",
+      "query": "找低于5000美元的256GB手机",
+      "expected_route": "catalogue",
+      "expected_status": "no_answer",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "找低于5000美元的256GB手机",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "operator": "lt",
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": null,
+              "capacity_operator": "in",
+              "capacity_values": [
+                256
+              ],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "maximum_cents": 500000,
+            "amount_operator": "lt",
+            "currency": "USD"
+          },
+          "missing": []
+        },
+        "status": "no_answer",
+        "fact": {
+          "variants": [],
+          "selection": {
+            "capacity_operator": "in",
+            "capacity_values": [
+              256
+            ],
+            "extreme": null,
+            "resolved_capacity_gb": null,
+            "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+            "matching_before_extreme_count": 0,
+            "brand": null,
+            "excluded_style": null,
+            "amount_cents": 500000,
+            "amount_operator": "lt",
+            "currency": "USD",
+            "exact_variant_ids": []
+          },
+          "source": "synthetic-catalogue/v1",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.04900014027953148
+        }
+      }
+    },
+    {
+      "id": "T15",
+      "query": "找低于5000.001元的256GB手机",
+      "expected_route": "catalogue",
+      "expected_status": "clarification",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "找低于5000.001元的256GB手机",
+          "route": "catalogue",
+          "ids": [],
+          "constraints": {
+            "operator": "lt",
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": null,
+              "capacity_operator": "in",
+              "capacity_values": [
+                256
+              ],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": [
+            "amount_precision"
+          ]
+        },
+        "status": "clarification",
+        "fact": null,
+        "evidence": [],
+        "trace": {
+          "route": "catalogue",
+          "elapsed_ms": 0.049209222197532654
+        }
+      }
+    },
+    {
+      "id": "T16",
+      "query": "ERR-PAY-999如何处理",
+      "expected_route": "documents",
+      "expected_status": "no_answer",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "ERR-PAY-999如何处理",
+          "route": "documents",
+          "ids": [
+            "ERR-PAY-999"
+          ],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": null,
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            }
+          },
+          "missing": []
+        },
+        "status": "no_answer",
+        "fact": null,
+        "evidence": [],
+        "trace": {
+          "route": "documents",
+          "elapsed_ms": 0.055999960750341415
+        }
+      }
+    },
+    {
+      "id": "T17",
+      "query": "PHONE-A-512有何差别",
+      "expected_route": "documents",
+      "expected_status": "no_answer",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "PHONE-A-512有何差别",
+          "route": "documents",
+          "ids": [
+            "PHONE-A-512"
+          ],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            }
+          },
+          "missing": []
+        },
+        "status": "no_answer",
+        "fact": null,
+        "evidence": [],
+        "trace": {
+          "route": "documents",
+          "scope": {
+            "entities": [
+              "PHONE-A-512"
+            ],
+            "category": "smartphone",
+            "brand": null,
+            "capacity_operator": null,
+            "capacity_values": [],
+            "extreme": null,
+            "topics": [],
+            "exclude_style": null,
+            "status": "ready",
+            "missing": [],
+            "expansion": "",
+            "resolved_capacity": null,
+            "scope_basis": null
+          },
+          "scope_version": "entity-topic-v1",
+          "scope_stale": false,
+          "authorized_count": 20,
+          "scoped_ids": [],
+          "model_query": "PHONE-A-512有何差别",
+          "rerank_query": "PHONE-A-512有何差别",
+          "lexical": [],
+          "dense": [],
+          "union": [],
+          "fused": [],
+          "shortlist": [],
+          "degraded": false,
+          "generation": 24,
+          "model": "lsa-tfidf-v1",
+          "reranker": "overlap-v1",
+          "elapsed_ms": 0.0955001451075077
+        }
+      }
+    },
+    {
+      "id": "T18",
+      "query": "菜单服务影响哪些生产消费者",
+      "expected_route": "cmdb",
+      "expected_status": "ok",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "菜单服务影响哪些生产消费者",
+          "route": "cmdb",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": null,
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "environment": "prod",
+            "service": "menu"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "edges": [
+            {
+              "consumer": "order",
+              "environment": "prod",
+              "source": "synthetic-cmdb/v1"
+            },
+            {
+              "consumer": "pos",
+              "environment": "prod",
+              "source": "synthetic-cmdb/v1"
+            }
+          ],
+          "complete": true,
+          "registered_only": true
+        },
+        "evidence": [],
+        "trace": {
+          "route": "cmdb",
+          "elapsed_ms": 0.04654191434383392
+        }
+      }
+    },
+    {
+      "id": "T19",
+      "query": "支付服务影响哪些生产消费者",
+      "expected_route": "cmdb",
+      "expected_status": "ok",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "支付服务影响哪些生产消费者",
+          "route": "cmdb",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": null,
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "environment": "prod",
+            "service": "payment"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "edges": [],
+          "complete": true,
+          "registered_only": true
+        },
+        "evidence": [],
+        "trace": {
+          "route": "cmdb",
+          "elapsed_ms": 0.04024989902973175
+        }
+      }
+    },
+    {
+      "id": "T20",
+      "query": "服务影响哪些生产消费者",
+      "expected_route": "cmdb",
+      "expected_status": "clarification",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "服务影响哪些生产消费者",
+          "route": "cmdb",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [],
+              "category": null,
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "environment": "prod"
+          },
+          "missing": [
+            "service_identity"
+          ]
+        },
+        "status": "clarification",
+        "fact": null,
+        "evidence": [],
+        "trace": {
+          "route": "cmdb",
+          "elapsed_ms": 0.03587501123547554
+        }
+      }
+    },
+    {
+      "id": "T21",
+      "query": "同名服务在沙箱和线上可以当成同一个对象吗",
+      "expected_route": "documents",
+      "expected_status": "ok",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "同名服务在沙箱和线上可以当成同一个对象吗",
+          "route": "documents",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [
+                "environment_identity"
+              ],
+              "category": null,
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            }
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": null,
+        "evidence": [
+          {
+            "id": "graph-rule",
+            "source": "graph-rule",
+            "revision": 1,
+            "text": "登记图缺少依赖不能证明无影响，生产和测试环境必须分开",
+            "valid_from": "2025-01-01T00:00:00+08:00"
+          }
+        ],
+        "trace": {
+          "route": "documents",
+          "scope": {
+            "entities": [],
+            "category": null,
+            "brand": null,
+            "capacity_operator": null,
+            "capacity_values": [],
+            "extreme": null,
+            "topics": [
+              "environment_identity"
+            ],
+            "exclude_style": null,
+            "status": "ready",
+            "missing": [],
+            "expansion": "服务 生产 测试 环境 身份",
+            "resolved_capacity": null,
+            "scope_basis": null
+          },
+          "scope_version": "entity-topic-v1",
+          "scope_stale": false,
+          "authorized_count": 20,
+          "scoped_ids": [
+            "graph-rule"
+          ],
+          "model_query": "同名服务在沙箱和线上可以当成同一个对象吗 服务 生产 测试 环境 身份",
+          "rerank_query": "同名服务在沙箱和线上可以当成同一个对象吗",
+          "lexical": [
+            "graph-rule"
+          ],
+          "dense": [
+            "graph-rule"
+          ],
+          "union": [
+            "graph-rule"
+          ],
+          "fused": [
+            "graph-rule"
+          ],
+          "shortlist": [
+            "graph-rule"
+          ],
+          "degraded": false,
+          "generation": 24,
+          "model": "lsa-tfidf-v1",
+          "reranker": "overlap-v1",
+          "elapsed_ms": 12.063832953572273
+        }
+      }
+    },
+    {
+      "id": "T22",
+      "query": "原料还有但配送入口不可点，应该核对什么",
+      "expected_route": "documents",
+      "expected_status": "ok",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "原料还有但配送入口不可点，应该核对什么",
+          "route": "documents",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [
+                "menu_availability"
+              ],
+              "category": null,
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            }
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": null,
+        "evidence": [
+          {
+            "id": "menu-channel",
+            "source": "menu-channel",
+            "revision": 1,
+            "text": "小程序显示售罄但 POS 能卖，检查渠道配置及临时可售状态",
+            "valid_from": "2025-01-01T00:00:00+08:00"
+          },
+          {
+            "id": "menu-contract",
+            "source": "menu-contract",
+            "revision": 1,
+            "text": "发布前检查菜单渠道、生效版本、可售、同步水位接口",
+            "valid_from": "2025-01-01T00:00:00+08:00"
+          }
+        ],
+        "trace": {
+          "route": "documents",
+          "scope": {
+            "entities": [],
+            "category": null,
+            "brand": null,
+            "capacity_operator": null,
+            "capacity_values": [],
+            "extreme": null,
+            "topics": [
+              "menu_availability"
+            ],
+            "exclude_style": null,
+            "status": "ready",
+            "missing": [],
+            "expansion": "菜单 渠道配置 可售状态 同步水位",
+            "resolved_capacity": null,
+            "scope_basis": null
+          },
+          "scope_version": "entity-topic-v1",
+          "scope_stale": false,
+          "authorized_count": 20,
+          "scoped_ids": [
+            "menu-channel",
+            "menu-contract"
+          ],
+          "model_query": "原料还有但配送入口不可点，应该核对什么 菜单 渠道配置 可售状态 同步水位",
+          "rerank_query": "原料还有但配送入口不可点，应该核对什么",
+          "lexical": [
+            "menu-contract",
+            "menu-channel"
+          ],
+          "dense": [
+            "menu-channel",
+            "menu-contract"
+          ],
+          "union": [
+            "menu-channel",
+            "menu-contract"
+          ],
+          "fused": [
+            "menu-channel",
+            "menu-contract"
+          ],
+          "shortlist": [
+            "menu-channel",
+            "menu-contract"
+          ],
+          "degraded": false,
+          "generation": 24,
+          "model": "lsa-tfidf-v1",
+          "reranker": "overlap-v1",
+          "elapsed_ms": 16.206916887313128
+        }
+      }
+    },
+    {
+      "id": "T23",
+      "query": "配方未知能保证不含花生吗",
+      "expected_route": "documents",
+      "expected_status": "ok",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "配方未知能保证不含花生吗",
+          "route": "documents",
+          "ids": [],
+          "constraints": {
+            "retrieval_scope": {
+              "topics": [
+                "recipe_safety"
+              ],
+              "category": null,
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            }
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": null,
+        "evidence": [
+          {
+            "id": "unknown",
+            "source": "unknown",
+            "revision": 1,
+            "text": "配方未知不能证明不含花生，需要明确配方和痕量风险",
+            "valid_from": "2025-01-01T00:00:00+08:00"
+          }
+        ],
+        "trace": {
+          "route": "documents",
+          "scope": {
+            "entities": [],
+            "category": null,
+            "brand": null,
+            "capacity_operator": null,
+            "capacity_values": [],
+            "extreme": null,
+            "topics": [
+              "recipe_safety"
+            ],
+            "exclude_style": null,
+            "status": "ready",
+            "missing": [],
+            "expansion": "配方 花生 痕量 风险",
+            "resolved_capacity": null,
+            "scope_basis": null
+          },
+          "scope_version": "entity-topic-v1",
+          "scope_stale": false,
+          "authorized_count": 20,
+          "scoped_ids": [
+            "unknown"
+          ],
+          "model_query": "配方未知能保证不含花生吗 配方 花生 痕量 风险",
+          "rerank_query": "配方未知能保证不含花生吗",
+          "lexical": [
+            "unknown"
+          ],
+          "dense": [
+            "unknown"
+          ],
+          "union": [
+            "unknown"
+          ],
+          "fused": [
+            "unknown"
+          ],
+          "shortlist": [
+            "unknown"
+          ],
+          "degraded": false,
+          "generation": 24,
+          "model": "lsa-tfidf-v1",
+          "reranker": "overlap-v1",
+          "elapsed_ms": 0.9244591929018497
+        }
+      }
+    },
+    {
+      "id": "T24",
+      "query": "PHONE-A-256 S01到店现在多少钱",
+      "expected_route": "price",
+      "expected_status": "ok",
+      "expected_variants": [],
+      "passed": true,
+      "result": {
+        "plan": {
+          "original": "PHONE-A-256 S01到店现在多少钱",
+          "route": "price",
+          "ids": [
+            "PHONE-A-256"
+          ],
+          "constraints": {
+            "store": "S01",
+            "retrieval_scope": {
+              "topics": [],
+              "category": "smartphone",
+              "brand": null,
+              "capacity_operator": null,
+              "capacity_values": [],
+              "extreme": null,
+              "exclude_style": null
+            },
+            "currency": "CNY"
+          },
+          "missing": []
+        },
+        "status": "ok",
+        "fact": {
+          "variant_id": "PHONE-A-256",
+          "amount_cents": 500000,
+          "currency": "CNY",
+          "store": "S01",
+          "channel": "到店",
+          "price_type": "list",
+          "observed_at": "2026-10-13T12:00:00+08:00",
+          "source": "synthetic-price-api/v1"
+        },
+        "evidence": [],
+        "trace": {
+          "route": "price",
+          "elapsed_ms": 0.06595905870199203
+        }
+      }
+    }
+  ]
+}

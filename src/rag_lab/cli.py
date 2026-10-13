@@ -121,7 +121,9 @@ def main():
     ask = sub.add_parser("ask")
     ask.add_argument("query")
     ask.add_argument(
-        "--mode", default="hybrid", choices=["bm25", "dense", "hybrid", "weighted", "rerank"]
+        "--mode",
+        default="constrained",
+        choices=["bm25", "dense", "hybrid", "weighted", "rerank", "constrained"],
     )
     for name in ("evaluate", "sweep"):
         command = sub.add_parser(name)
@@ -139,6 +141,7 @@ def main():
         default=["data/retrieval_queries.json", "data/neural_challenge_queries.json"],
     )
     real.add_argument("--profile")
+    real.add_argument("--include-constrained", action="store_true")
     real.add_argument("--output", default="reports/neural-evaluation.json")
     real.add_argument("--local-files-only", action="store_true")
     real_ask = sub.add_parser("neural-ask")
@@ -148,18 +151,26 @@ def main():
     generation = sub.add_parser("generation-evaluate")
     generation.add_argument("--pi-auth", help="Explicit Pi auth.json; never saved in results")
     generation.add_argument("--profile")
+    generation.add_argument("--optimized", action="store_true")
     generation.add_argument("--output", default="reports/deepseek-generation.json")
+    sub.add_parser("routing-tasks")
     sub.add_parser("capacity")
     args = parser.parse_args()
-    if args.command == "generation-evaluate":
+    if args.command == "routing-tasks":
+        from .neural_experiment import routing_task_evaluate
+
+        emit(routing_task_evaluate())
+    elif args.command == "generation-evaluate":
         from .neural_experiment import generation_evaluate
 
-        result = generation_evaluate(args.pi_auth, args.output, args.profile)
+        result = generation_evaluate(args.pi_auth, args.output, args.profile, args.optimized)
         emit({"output": args.output, "completed": result["completed"], "passed": result["passed"]})
     elif args.command == "neural-evaluate":
         from .neural_experiment import neural_evaluate
 
-        result = neural_evaluate(args.data, args.output, args.profile, args.local_files_only)
+        result = neural_evaluate(
+            args.data, args.output, args.profile, args.local_files_only, args.include_constrained
+        )
         emit(
             {
                 "output": args.output,
@@ -179,7 +190,7 @@ def main():
                 args.query,
                 ALICE,
                 AT,
-                mode="rerank",
+                mode="constrained",
                 rerank_timeout=profile["rerank_timeout_seconds"],
             )
         )

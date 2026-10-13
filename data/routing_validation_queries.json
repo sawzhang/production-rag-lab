@@ -1,0 +1,462 @@
+[
+  {
+    "id": "V01",
+    "query": "苹果手机至少128GB的容量规格",
+    "gold": {
+      "phone128": 2,
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "validation-capacity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone128"
+      ],
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "V02",
+    "query": "苹果手机大于128G的标准规格",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "validation-capacity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "V03",
+    "query": "苹果手机不低于256GB的规格",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "validation-capacity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "V04",
+    "query": "苹果手机小于256G的容量",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "capacity",
+    "family": "validation-capacity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "V05",
+    "query": "苹果手机最大存储规格，不要Pro",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "validation-capacity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "V06",
+    "query": "苹果手机最小容量规格，不要Pro",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "capacity",
+    "family": "validation-capacity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "V07",
+    "query": "苹果128G与256G手机的规格差异",
+    "gold": {
+      "phone128": 2,
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "validation-capacity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone128"
+      ],
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "V08",
+    "query": "Apple手机128GB规格编号",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "capacity",
+    "family": "validation-capacity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "V09",
+    "query": "POS能卖，小程序菜单不能点，渠道和可售如何核对",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "validation-menu_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "V10",
+    "query": "配送菜单灰了，现有库存不等于可售吗",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "validation-menu_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "V11",
+    "query": "线上入口显示卖完但收银还能卖，检查菜单",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "validation-menu_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "V12",
+    "query": "菜单在小程序不可售，检查生效配置及同步水位",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "validation-menu_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "V13",
+    "query": "配料表没确认时是否可说没有花生",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "recipe_control",
+    "family": "validation-recipe_control",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "V14",
+    "query": "菜单配方未知且可能痕量，过敏风险是什么",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "recipe_control",
+    "family": "validation-recipe_control",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "V15",
+    "query": "生产环境和沙箱环境的同名服务如何区分",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "validation-environment_identity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "V16",
+    "query": "同名系统在测试与生产能当成同一个实体吗",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "validation-environment_identity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "V17",
+    "query": "服务登记图缺少依赖就能直接下线吗",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "validation-environment_identity",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "V18",
+    "query": "找不到消息处理日志能直接证明消息丢了吗",
+    "gold": {
+      "incident2": 2,
+      "order-timeout": 1
+    },
+    "slice": "message_control",
+    "family": "validation-message_control",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "incident2"
+      ],
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "V19",
+    "query": "错误码ERR-PAY-042的回调超时排查",
+    "gold": {
+      "pay-error": 2
+    },
+    "slice": "identifier_control",
+    "family": "validation-identifier_control",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "pay-error"
+      ]
+    ]
+  },
+  {
+    "id": "V20",
+    "query": "svc-order-v2的超时trace检查",
+    "gold": {
+      "order-timeout": 2
+    },
+    "slice": "identifier_control",
+    "family": "validation-identifier_control",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "V21",
+    "query": "苹果保护套适配手机规格",
+    "gold": {
+      "case": 2
+    },
+    "slice": "accessory_control",
+    "family": "validation-accessory_control",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "case"
+      ]
+    ]
+  },
+  {
+    "id": "V22",
+    "query": "红富士苹果一公斤的水果规格信息",
+    "gold": {
+      "fruit": 2
+    },
+    "slice": "fruit_control",
+    "family": "validation-fruit_control",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "fruit"
+      ]
+    ]
+  },
+  {
+    "id": "V23",
+    "query": "外送与到店会员定制配料报价差异",
+    "gold": {
+      "price-rule": 2
+    },
+    "slice": "pricing_control",
+    "family": "validation-pricing_control",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "price-rule"
+      ]
+    ]
+  },
+  {
+    "id": "V24",
+    "query": "payment captured与退款受理是不是都代表完成",
+    "gold": {
+      "states": 2
+    },
+    "slice": "state_control",
+    "family": "validation-state_control",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "holdout",
+    "required_groups": [
+      [
+        "states"
+      ]
+    ]
+  }
+]

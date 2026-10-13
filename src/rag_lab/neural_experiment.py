@@ -70,7 +70,9 @@ def percentiles(values):
     return {f"p{p}": float(np.percentile(values, p)) for p in (50, 95, 99)}
 
 
-def neural_evaluate(paths, output=None, profile_path=None, local_files_only=False):
+def neural_evaluate(
+    paths, output=None, profile_path=None, local_files_only=False, include_constrained=False
+):
     profile = load_profile(profile_path)
     store = corpus()
     rows = []
@@ -104,6 +106,8 @@ def neural_evaluate(paths, output=None, profile_path=None, local_files_only=Fals
         ("neural_hybrid_overlap", overlap, "rerank"),
         ("neural_hybrid_cross_encoder", neural, "rerank"),
     ]
+    if include_constrained:
+        configs.append(("constrained_cross_encoder", neural, "constrained"))
     documents = list(store.documents.values())
     corpus_hash = hashlib.sha256(
         json.dumps(
@@ -117,6 +121,12 @@ def neural_evaluate(paths, output=None, profile_path=None, local_files_only=Fals
                     sorted(d.groups),
                     d.valid_from,
                     d.valid_to,
+                    d.entities,
+                    d.topics,
+                    d.category,
+                    d.brand,
+                    d.capacity_gb,
+                    d.style,
                 )
                 for d in documents
             ],
@@ -132,6 +142,13 @@ def neural_evaluate(paths, output=None, profile_path=None, local_files_only=Fals
         "model_load_seconds": load_seconds,
         "warmup_and_document_encoding_seconds": warm_seconds,
         "verified_weights": weights,
+        "include_constrained": include_constrained,
+        "routing_source_sha256": {
+            name: file_hash(Path(__file__).with_name(name))
+            for name in ("routing.py", "retrieval.py", "contracts.py", "business.py", "service.py")
+        }
+        if include_constrained
+        else None,
         "scope": "local real neural inference on synthetic Chinese corpus; warm document cache",
         "runtime": {
             "python": platform.python_version(),
@@ -189,8 +206,11 @@ def neural_evaluate(paths, output=None, profile_path=None, local_files_only=Fals
                         trace["fused"], row["gold"], profile["candidate_budget"]
                     )["recall"],
                     "fused_candidate_ids": trace["fused"][: profile["candidate_budget"]],
+                    "scope_plan": trace.get("scope"),
+                    "scoped_ids": trace.get("scoped_ids"),
+                    "model_query": trace.get("model_query"),
                     "rerank_candidate_count": min(len(trace["fused"]), profile["candidate_budget"])
-                    if mode == "rerank"
+                    if mode in {"rerank", "constrained"}
                     else 0,
                     "elapsed_ms": elapsed,
                     "degraded": trace["degraded"],
@@ -225,9 +245,11 @@ def neural_evaluate(paths, output=None, profile_path=None, local_files_only=Fals
         ("neural_hybrid_cross_encoder", "neural_hybrid_rrf"),
         ("neural_hybrid_cross_encoder", "neural_hybrid_overlap"),
     ]
+    if include_constrained:
+        comparisons.append(("constrained_cross_encoder", "neural_hybrid_cross_encoder"))
     for left, right in comparisons:
         a, b = result["modes"][left]["details"], result["modes"][right]["details"]
-        if "cross_encoder" in left and "hybrid" in right:
+        if left == "neural_hybrid_cross_encoder" and "hybrid" in right:
             assert all(x["fused_candidate_ids"] == y["fused_candidate_ids"] for x, y in zip(a, b))
         deltas = [x["metrics"]["ndcg"] - y["metrics"]["ndcg"] for x, y in zip(a, b)]
         pairs.append(
@@ -247,7 +269,9 @@ def neural_evaluate(paths, output=None, profile_path=None, local_files_only=Fals
     return result
 
 
-def generation_evaluate(pi_auth=None, output="reports/deepseek-generation.json", profile_path=None):
+def generation_evaluate(
+    pi_auth=None, output="reports/deepseek-generation.json", profile_path=None, optimized=False
+):
     from .business import Gateway
     from .generation import generate, resolve_key, validate_generation
     from .service import Service
@@ -270,11 +294,27 @@ def generation_evaluate(pi_auth=None, output="reports/deepseek-generation.json",
         ("G07", "PHONE-A-256 S01 到店多少钱", "insufficient", []),
         ("G08", "当前订单是否已完成", "insufficient", []),
     ]
+    if optimized:
+        cases.extend(
+            [
+                ("G09", "较小容量的苹果手机规格编号是什么", "answered", []),
+                (
+                    "G10",
+                    "原料还有但配送入口不可点，应该核对什么",
+                    "answered",
+                    [{"menu-channel"}, {"menu-contract"}],
+                ),
+                ("G11", "同名服务在沙箱和线上可以当成同一个对象吗", "answered", [{"graph-rule"}]),
+                ("G12", "苹果512GB手机的规格", "insufficient", []),
+            ]
+        )
     expected_fragments = {
         "G01": ["不等于出杯完成"],
         "G02": ["退款受理不等于资金到账"],
         "G03": ["菜单渠道", "价格币种"],
         "G04": ["允许叠加", "禁止叠加"],
+        "G10": ["渠道配置", "同步水位"],
+        "G11": ["生产和测试环境必须分开"],
     }
     checkpoint = json.loads(Path(output).read_text()) if Path(output).exists() else {}
     previous = {r["id"]: r for r in checkpoint.get("details", [])}
@@ -294,9 +334,18 @@ def generation_evaluate(pi_auth=None, output="reports/deepseek-generation.json",
             }
         else:
             result = service.answer(
-                query, ALICE, AT, mode="rerank", rerank_timeout=profile["rerank_timeout_seconds"]
+                query,
+                ALICE,
+                AT,
+                mode="constrained" if optimized else "rerank",
+                rerank_timeout=profile["rerank_timeout_seconds"],
             )
-            bundle = {"fact": result["fact"], "evidence": result["evidence"]}
+            bundle = {
+                "fact": result["fact"]
+                if result["status"] not in {"no_answer", "clarification", "unavailable"}
+                else None,
+                "evidence": result["evidence"],
+            }
         from .generation import SYSTEM
 
         fingerprint = hashlib.sha256(
@@ -388,3 +437,31 @@ def generation_evaluate(pi_auth=None, output="reports/deepseek-generation.json",
     }
     Path(output).write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     return result
+
+
+def routing_task_evaluate(path="data/routing_tasks.json", output="reports/routing-tasks.json"):
+    from .service import Service
+
+    service = Service(corpus())
+    rows = json.loads(Path(path).read_text())
+    details = []
+    for row in rows:
+        result = service.answer(row["query"], ALICE, AT)
+        expected_variants = row["expected_variants"]
+        actual_variants = [v["id"] for v in (result["fact"] or {}).get("variants", [])]
+        passed = (
+            result["plan"]["route"] == row["expected_route"]
+            and result["status"] == row["expected_status"]
+            and sorted(actual_variants) == sorted(expected_variants)
+        )
+        details.append({**row, "passed": passed, "result": result})
+    report = {
+        "input_sha256": file_hash(path),
+        "scope": "typed authority/clarification tasks; excluded from retrieval recall",
+        "query_count": len(rows),
+        "passed": sum(r["passed"] for r in details),
+        "details": details,
+    }
+    Path(output).parent.mkdir(parents=True, exist_ok=True)
+    Path(output).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    return report

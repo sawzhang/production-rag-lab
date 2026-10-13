@@ -43,6 +43,11 @@ class Document:
     claim: str | None = None
     value: str | None = None
     approved: bool = True
+    topics: tuple[str, ...] = ()
+    category: str | None = None
+    brand: str | None = None
+    capacity_gb: int | None = None
+    style: str | None = None
 
     def visible(self, identity: Identity, at: str) -> bool:
         time = instant(at)
@@ -115,7 +120,80 @@ def parse(query: str) -> Plan:
         constraints["operator"] = "le"
     elif "低于" in query:
         constraints["operator"] = "lt"
-    return Plan(query, route, ids, constraints, missing)
+    from .routing import infer_scope, normalized
+
+    scope = infer_scope(query)
+    text = normalized(query)
+    constraints["retrieval_scope"] = {
+        "topics": scope.topics,
+        "category": scope.category,
+        "brand": scope.brand,
+        "capacity_operator": scope.capacity_operator,
+        "capacity_values": scope.capacity_values,
+        "extreme": scope.extreme,
+        "exclude_style": scope.exclude_style,
+    }
+    if route != "deny_write":
+        if scope.status == "clarification":
+            missing.extend(scope.missing)
+        if scope.topics and all(
+            t in {"environment_identity", "dependency_safety"} for t in scope.topics
+        ):
+            route = "documents"
+            missing = [x for x in missing if x != "environment"]
+        elif (
+            scope.category == "smartphone"
+            and (scope.capacity_operator or scope.extreme or "comparison_logic" in scope.missing)
+            and not any(term in text for term in ("多少钱", "会员价"))
+        ):
+            route = "catalogue"
+            missing = [
+                x
+                for x in missing
+                if x
+                not in {"variant_id", "store", "channel", "unsupported_historical_or_filter_intent"}
+            ]
+            if any(x in text for x in ("去年", "历史", "昨天", "明天")):
+                missing.append("historical_catalogue_source")
+        if route == "price":
+            constraints["currency"] = "USD" if any(x in text for x in ("美元", "usd")) else "CNY"
+        if route == "cmdb":
+            production = any(x in text for x in ("生产", "线上", "prod"))
+            testing = any(x in text for x in ("测试", "沙箱", "test", "staging"))
+            if production and testing:
+                missing.append("environment_choice")
+            elif production or testing:
+                constraints["environment"] = "prod" if production else "test"
+                missing = [x for x in missing if x != "environment"]
+            aliases = {"菜单服务": "menu", "订单服务": "order", "支付服务": "payment"}
+            service = next((v for alias, v in aliases.items() if alias in text), None)
+            if service:
+                constraints["service"] = service
+            else:
+                missing.append("service_identity")
+        if route == "catalogue":
+            price = re.search(
+                r"(不高于|不超过|至多|至少|不低于|超过|大于|低于|小于)\s*(\d+(?:\.\d+)?)\s*(?:美元|元)",
+                text,
+            )
+            if price:
+                try:
+                    constraints["maximum_cents"] = cents(price[2])
+                    constraints["amount_operator"] = {
+                        "不高于": "le",
+                        "不超过": "le",
+                        "至多": "le",
+                        "至少": "ge",
+                        "不低于": "ge",
+                        "超过": "gt",
+                        "大于": "gt",
+                        "低于": "lt",
+                        "小于": "lt",
+                    }[price[1]]
+                except ValueError:
+                    missing.append("amount_precision")
+            constraints["currency"] = "USD" if any(x in text for x in ("美元", "usd")) else "CNY"
+    return Plan(query, route, ids, constraints, list(dict.fromkeys(missing)))
 
 
 def protected_rewrite(original: str, rewritten: str) -> str:

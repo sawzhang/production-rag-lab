@@ -1,0 +1,186 @@
+[
+  {
+    "id": "T01",
+    "query": "较小容量的苹果手机规格编号是什么",
+    "expected_route": "catalogue",
+    "expected_status": "ok",
+    "expected_variants": [
+      "PHONE-A-128"
+    ]
+  },
+  {
+    "id": "T02",
+    "query": "苹果手机最小容量是多少",
+    "expected_route": "catalogue",
+    "expected_status": "ok",
+    "expected_variants": [
+      "PHONE-A-128"
+    ]
+  },
+  {
+    "id": "T03",
+    "query": "苹果手机256GB规格，不要Pro",
+    "expected_route": "catalogue",
+    "expected_status": "ok",
+    "expected_variants": [
+      "PHONE-A-256",
+      "PHONE-B-256"
+    ]
+  },
+  {
+    "id": "T04",
+    "query": "找低于5000元的256GB手机",
+    "expected_route": "catalogue",
+    "expected_status": "ok",
+    "expected_variants": [
+      "PHONE-B-256"
+    ]
+  },
+  {
+    "id": "T05",
+    "query": "不高于5000元的256GB手机",
+    "expected_route": "catalogue",
+    "expected_status": "ok",
+    "expected_variants": [
+      "PHONE-A-256",
+      "PHONE-B-256"
+    ]
+  },
+  {
+    "id": "T06",
+    "query": "容量比256GB小的苹果手机",
+    "expected_route": "catalogue",
+    "expected_status": "ok",
+    "expected_variants": [
+      "PHONE-A-128"
+    ]
+  },
+  {
+    "id": "T07",
+    "query": "不超过128GB的苹果手机",
+    "expected_route": "catalogue",
+    "expected_status": "ok",
+    "expected_variants": [
+      "PHONE-A-128"
+    ]
+  },
+  {
+    "id": "T08",
+    "query": "苹果512GB手机的规格",
+    "expected_route": "catalogue",
+    "expected_status": "no_answer",
+    "expected_variants": []
+  },
+  {
+    "id": "T09",
+    "query": "PHONE-A-128的256GB手机规格",
+    "expected_route": "catalogue",
+    "expected_status": "no_answer",
+    "expected_variants": []
+  },
+  {
+    "id": "T10",
+    "query": "最小容量是哪一个",
+    "expected_route": "documents",
+    "expected_status": "clarification",
+    "expected_variants": []
+  },
+  {
+    "id": "T11",
+    "query": "苹果手机最小和最大容量是哪一个",
+    "expected_route": "catalogue",
+    "expected_status": "clarification",
+    "expected_variants": []
+  },
+  {
+    "id": "T12",
+    "query": "去年苹果手机最小容量是什么",
+    "expected_route": "catalogue",
+    "expected_status": "clarification",
+    "expected_variants": []
+  },
+  {
+    "id": "T13",
+    "query": "苹果128GB 256GB手机规格",
+    "expected_route": "catalogue",
+    "expected_status": "clarification",
+    "expected_variants": []
+  },
+  {
+    "id": "T14",
+    "query": "找低于5000美元的256GB手机",
+    "expected_route": "catalogue",
+    "expected_status": "no_answer",
+    "expected_variants": []
+  },
+  {
+    "id": "T15",
+    "query": "找低于5000.001元的256GB手机",
+    "expected_route": "catalogue",
+    "expected_status": "clarification",
+    "expected_variants": []
+  },
+  {
+    "id": "T16",
+    "query": "ERR-PAY-999如何处理",
+    "expected_route": "documents",
+    "expected_status": "no_answer",
+    "expected_variants": []
+  },
+  {
+    "id": "T17",
+    "query": "PHONE-A-512有何差别",
+    "expected_route": "documents",
+    "expected_status": "no_answer",
+    "expected_variants": []
+  },
+  {
+    "id": "T18",
+    "query": "菜单服务影响哪些生产消费者",
+    "expected_route": "cmdb",
+    "expected_status": "ok",
+    "expected_variants": []
+  },
+  {
+    "id": "T19",
+    "query": "支付服务影响哪些生产消费者",
+    "expected_route": "cmdb",
+    "expected_status": "ok",
+    "expected_variants": []
+  },
+  {
+    "id": "T20",
+    "query": "服务影响哪些生产消费者",
+    "expected_route": "cmdb",
+    "expected_status": "clarification",
+    "expected_variants": []
+  },
+  {
+    "id": "T21",
+    "query": "同名服务在沙箱和线上可以当成同一个对象吗",
+    "expected_route": "documents",
+    "expected_status": "ok",
+    "expected_variants": []
+  },
+  {
+    "id": "T22",
+    "query": "原料还有但配送入口不可点，应该核对什么",
+    "expected_route": "documents",
+    "expected_status": "ok",
+    "expected_variants": []
+  },
+  {
+    "id": "T23",
+    "query": "配方未知能保证不含花生吗",
+    "expected_route": "documents",
+    "expected_status": "ok",
+    "expected_variants": []
+  },
+  {
+    "id": "T24",
+    "query": "PHONE-A-256 S01到店现在多少钱",
+    "expected_route": "price",
+    "expected_status": "ok",
+    "expected_variants": []
+  }
+]

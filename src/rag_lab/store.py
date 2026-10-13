@@ -85,6 +85,7 @@ class Store:
         for row in json.loads(path.read_text()):
             row["groups"] = frozenset(row["groups"])
             row["entities"] = tuple(row["entities"])
+            row["topics"] = tuple(row.get("topics", ()))
             d = Document(**row)
             if d.id not in self.deleted:
                 self.documents[d.id] = d

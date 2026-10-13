@@ -69,6 +69,21 @@ uv run --no-sync rag-lab generation-evaluate --pi-auth "$HOME/.pi/agent/auth.jso
 
 凭据只在请求头中使用，不写入项目、日志或报告。8 个任务覆盖状态、必需证据组、冲突、无答案、精确金额、API 失败和注入。输出仅允许 JSON 事实和原文引用，程序独立检查字段、引用、关键否定与状态，不让同一个模型自行打分。结果及实际 token 用量在 `reports/deepseek-generation.json`。同一输入的已通过调用可从报告复用，避免重复计费；模型别名并非 immutable checkpoint，自由文字生成质量仍需额外人工评审。
 
+## 实体约束与路由优化
+
+默认 `ask` / `neural-ask` 采用 `constrained`，通过可信元数据先过滤容量、品牌、类目、精确ID和主题；最小/最大容量明确比较范围。菜单不可售、配方未知与环境概念分开，当前规格与金额走白名单权威服务。约束无匹配时不会扩大范围；缺条件时追问。模型仍可用原模式做消融。
+
+```bash
+uv run --no-sync rag-lab ask "较小容量的苹果手机规格编号是什么"
+uv run --no-sync rag-lab ask "不高于5000元的256GB手机"
+uv run --no-sync rag-lab neural-ask "原料还有但配送入口不可点，应该核对什么" --local-files-only
+uv run --no-sync rag-lab neural-evaluate --include-constrained --local-files-only --data data/retrieval_queries.json data/neural_challenge_queries.json data/routing_queries.json data/routing_validation_queries.json --output reports/routing-evaluation.json
+uv run --no-sync rag-lab routing-tasks
+uv run --no-sync python scripts/check_routing_release.py
+```
+
+[最新路由优化报告](reports/routing-optimization.md)：120条文档题与24条独立路由任务，另含真实生成回归。新增48题已用于调试，明确作为dev；后加24题单独报告验证结果。保留排序不完美和首次模型拒答，原始实验不覆盖。
+
 ## 结构
 
 | 路径 | 用途 |

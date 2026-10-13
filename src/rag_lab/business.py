@@ -11,6 +11,7 @@ class Variant:
     price_cents: int
     style: str = "standard"
     currency: str = "CNY"
+    brand: str = "Apple"
 
 
 VARIANTS = [
@@ -18,14 +19,14 @@ VARIANTS = [
     Variant("PHONE-A-256", "smartphone", 256, 500000),
     Variant("PHONE-B-256", "smartphone", 256, 499999),
     Variant("PHONE-P-256", "smartphone", 256, 600000, "Pro"),
-    Variant("FRUIT-FUJI-1KG", "fruit", None, 1800),
+    Variant("FRUIT-FUJI-1KG", "fruit", None, 1800, brand="Orchard"),
 ]
 
 
 class Gateway:
     """Synthetic read-only authority. Identity comes from the caller's trusted context."""
 
-    allowed = frozenset({"quote", "order", "menu", "dependencies"})
+    allowed = frozenset({"quote", "order", "menu", "dependencies", "catalogue"})
 
     def __init__(self):
         self.price_available = True
@@ -82,6 +83,11 @@ class Gateway:
         at: str,
         member=False,
         extras=0,
+        capacity_values=(),
+        capacity_operator="in",
+        currency="CNY",
+        brand=None,
+        exclude_style=None,
     ):
         self.authorize_store(identity, store)
         instant(at)
@@ -94,6 +100,27 @@ class Gateway:
         variant = next((x for x in VARIANTS if x.id == variant_id), None)
         if not variant:
             raise LookupError("exact variant not found")
+        if capacity_operator not in {"in", "lt", "le", "gt", "ge"}:
+            raise ValueError("invalid capacity operator")
+        if (
+            currency != variant.currency
+            or (brand is not None and brand != variant.brand)
+            or variant.style == exclude_style
+        ):
+            raise LookupError("quote conflicts with requested entity/currency/style")
+        if capacity_values:
+            v, threshold = variant.capacity, capacity_values[0]
+            if (
+                v is None
+                or not {
+                    "in": v in capacity_values,
+                    "lt": v < threshold,
+                    "le": v <= threshold,
+                    "gt": v > threshold,
+                    "ge": v >= threshold,
+                }[capacity_operator]
+            ):
+                raise LookupError("quote conflicts with requested capacity")
         amount = variant.price_cents + (200 if channel == "外送" else 0) + extras * 100
         if member:
             amount = amount * 9 // 10
@@ -164,6 +191,102 @@ class Gateway:
                         return {"edges": result, "complete": False, "registered_only": True}
             frontier = following
         return {"edges": result, "complete": True, "registered_only": True}
+
+    def catalogue(
+        self,
+        identity,
+        at,
+        capacities=(),
+        operator="in",
+        extreme=None,
+        exclude=None,
+        maximum=None,
+        currency="CNY",
+        amount_operator="lt",
+        variant_ids=(),
+        brand=None,
+    ):
+        instant(at)
+        if identity.tenant != "demo" or "staff" not in identity.groups:
+            raise PermissionError("object unavailable")
+        if amount_operator not in {"lt", "le", "gt", "ge"}:
+            raise ValueError("unsupported amount predicate")
+        if operator not in {"in", "lt", "le", "gt", "ge"} or extreme not in {None, "min", "max"}:
+            raise ValueError("unsupported catalogue predicate")
+        if any(not isinstance(v, int) or isinstance(v, bool) or v <= 0 for v in capacities):
+            raise ValueError("invalid capacity")
+        if maximum is not None and (
+            not isinstance(maximum, int) or isinstance(maximum, bool) or maximum < 0
+        ):
+            raise ValueError("invalid amount")
+        rows = [
+            v
+            for v in VARIANTS
+            if v.category == "smartphone"
+            and v.currency == currency
+            and (not variant_ids or v.id in variant_ids)
+            and (brand is None or v.brand == brand)
+            and v.style != exclude
+            and (
+                maximum is None
+                or {
+                    "lt": v.price_cents < maximum,
+                    "le": v.price_cents <= maximum,
+                    "gt": v.price_cents > maximum,
+                    "ge": v.price_cents >= maximum,
+                }[amount_operator]
+            )
+        ]
+        if capacities:
+            limit = capacities[0]
+            rows = [
+                v
+                for v in rows
+                if {
+                    "in": v.capacity in capacities,
+                    "lt": v.capacity < limit,
+                    "le": v.capacity <= limit,
+                    "gt": v.capacity > limit,
+                    "ge": v.capacity >= limit,
+                }[operator]
+            ]
+        matching_count = len(rows)
+        target = None
+        if extreme and rows:
+            target = (
+                min(v.capacity for v in rows) if extreme == "min" else max(v.capacity for v in rows)
+            )
+            rows = [v for v in rows if v.capacity == target]
+        return {
+            "variants": [
+                {
+                    "id": v.id,
+                    "category": v.category,
+                    "capacity_gb": v.capacity,
+                    "style": v.style,
+                    "brand": v.brand,
+                    "currency": v.currency,
+                }
+                for v in rows
+            ],
+            "selection": {
+                "capacity_operator": operator,
+                "capacity_values": list(capacities),
+                "extreme": extreme,
+                "resolved_capacity_gb": target,
+                "comparison_scope": "authorized synthetic smartphone catalogue matching requested predicates",
+                "matching_before_extreme_count": matching_count,
+                "brand": brand,
+                "excluded_style": exclude,
+                "amount_cents": maximum,
+                "amount_operator": amount_operator,
+                "currency": currency,
+                "exact_variant_ids": list(variant_ids),
+            },
+            "source": "synthetic-catalogue/v1",
+            "observed_at": at,
+            "scope": "authorized synthetic smartphone catalogue; prices are fixed list-price snapshot",
+        }
 
     def call(self, name, identity, **parameters):
         if name not in self.allowed:

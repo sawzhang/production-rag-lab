@@ -1,5 +1,7 @@
 # 真实模型实验报告 · 2026-10-13
 
+本篇保留首次真实模型基线。后续实体约束、容量与菜单路由改动及扩充评测见 [最新优化报告](routing-optimization.md)。
+
 ## 本次实际运行的模型与协议
 
 - Embedding：`BAAI/bge-small-zh-v1.5@7999e1d3359715c523056ef9478215996d62a620`；中文 query prefix，512 输入上限，归一化 cosine。

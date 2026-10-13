@@ -1,0 +1,934 @@
+[
+  {
+    "id": "C01",
+    "query": "苹果手机的最小存储容量规格",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "C02",
+    "query": "Apple 手机较小容量的编号",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "C03",
+    "query": "苹果标准版最大容量是哪款规格",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "C04",
+    "query": "较大存储容量的苹果手机型号",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "C05",
+    "query": "苹果128GB手机的规格",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "C06",
+    "query": "苹果256G手机容量信息",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "C07",
+    "query": "找容量小于256GB的苹果手机",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "C08",
+    "query": "容量超过128GB的苹果手机",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "C09",
+    "query": "不超过128GB的苹果手机规格",
+    "gold": {
+      "phone128": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone128"
+      ]
+    ]
+  },
+  {
+    "id": "C10",
+    "query": "至少256GB的苹果手机规格",
+    "gold": {
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "C11",
+    "query": "比较苹果128GB和256GB手机容量",
+    "gold": {
+      "phone128": 2,
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone128"
+      ],
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "C12",
+    "query": "PHONE-A-128和PHONE-A-256规格比较",
+    "gold": {
+      "phone128": 2,
+      "phone256": 2
+    },
+    "slice": "capacity",
+    "family": "product_scope",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "phone128"
+      ],
+      [
+        "phone256"
+      ]
+    ]
+  },
+  {
+    "id": "C13",
+    "query": "配送入口灰了但店里能卖，核对哪些菜单配置",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C14",
+    "query": "原料库存还有，小程序无法下单，排查菜单可售",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C15",
+    "query": "外送点不了，收银却能卖，应该查菜单哪几项",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C16",
+    "query": "小程序卖完而POS能卖，需要核验哪些菜单字段",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C17",
+    "query": "门店有原料但菜单不可售，怎样核对渠道及生效配置",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C18",
+    "query": "配送入口不可点，核对可售与同步水位",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C19",
+    "query": "小程序显示售罄，检查渠道配置及菜单状态",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C20",
+    "query": "线上菜单点不了但收银能卖，配置怎么排查",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C21",
+    "query": "POS能賣但小程序顯示售罄，检查菜单规则",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C22",
+    "query": "原料还有但菜单无法售卖，核对渠道和版本",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C23",
+    "query": "外送入口灰色，菜单诊断应检查什么",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C24",
+    "query": "菜单不可点，临时可售状态和渠道配置怎么检查",
+    "gold": {
+      "menu-channel": 2,
+      "menu-contract": 1
+    },
+    "slice": "menu_availability",
+    "family": "availability_vs_recipe",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-channel"
+      ],
+      [
+        "menu-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C25",
+    "query": "同名服务在生产和沙箱是不是同一个实体",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "cmdb_concept",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "C26",
+    "query": "测试和线上服务名一样，能当成同一对象吗",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "cmdb_concept",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "C27",
+    "query": "同一服务名在生产与测试环境如何区分",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "cmdb_concept",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "C28",
+    "query": "沙箱和生产同名系统可以合并吗",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "cmdb_concept",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "C29",
+    "query": "svc-order-v2在生产和测试同名，能当成同一服务对象吗",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "cmdb_concept",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "C30",
+    "query": "登记图没有依赖是否能直接下线服务",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "cmdb_concept",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "C31",
+    "query": "CMDB缺边就证明可以删除服务吗",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "cmdb_concept",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "C32",
+    "query": "依赖清单没有消费者，能否下线服务",
+    "gold": {
+      "graph-rule": 2
+    },
+    "slice": "environment_identity",
+    "family": "cmdb_concept",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "graph-rule"
+      ]
+    ]
+  },
+  {
+    "id": "C33",
+    "query": "配方未知的饮品可以说不含花生吗",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "recipe_control",
+    "family": "recipe_vs_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "C34",
+    "query": "配料表没有提供，如何判断花生风险",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "recipe_control",
+    "family": "recipe_vs_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "C35",
+    "query": "配方没确认能否保证不含花生",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "recipe_control",
+    "family": "recipe_vs_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "C36",
+    "query": "菜单配方的痕量和过敏风险如何说明",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "recipe_control",
+    "family": "recipe_vs_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "C37",
+    "query": "未知配方不是不含花生，规则怎么解释",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "recipe_control",
+    "family": "recipe_vs_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "C38",
+    "query": "未确认配方的饮品花生风险",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "recipe_control",
+    "family": "recipe_vs_availability",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  },
+  {
+    "id": "C39",
+    "query": "苹果保护壳适配哪些手机",
+    "gold": {
+      "case": 2
+    },
+    "slice": "accessory_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "case"
+      ]
+    ]
+  },
+  {
+    "id": "C40",
+    "query": "红富士水果一公斤的规格",
+    "gold": {
+      "fruit": 2
+    },
+    "slice": "fruit_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "fruit"
+      ]
+    ]
+  },
+  {
+    "id": "C41",
+    "query": "到店外送定制配料的会员报价规则",
+    "gold": {
+      "price-rule": 2
+    },
+    "slice": "pricing_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "price-rule"
+      ]
+    ]
+  },
+  {
+    "id": "C42",
+    "query": "发布前检查菜单可售与价格币种接口",
+    "gold": {
+      "menu-contract": 2,
+      "price-contract": 2
+    },
+    "slice": "multi_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "menu-contract"
+      ],
+      [
+        "price-contract"
+      ]
+    ]
+  },
+  {
+    "id": "C43",
+    "query": "payment captured并不代表出杯完成吗",
+    "gold": {
+      "states": 2
+    },
+    "slice": "state_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "states"
+      ]
+    ]
+  },
+  {
+    "id": "C44",
+    "query": "缺少消息处理日志，能证明消息丢了吗",
+    "gold": {
+      "incident2": 2,
+      "order-timeout": 1
+    },
+    "slice": "message_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "incident2"
+      ],
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "C45",
+    "query": "ERR-PAY-042对应哪份支付回调手册",
+    "gold": {
+      "pay-error": 2
+    },
+    "slice": "identifier_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "pay-error"
+      ]
+    ]
+  },
+  {
+    "id": "C46",
+    "query": "svc-order-v2超时的下游响应怎么查",
+    "gold": {
+      "order-timeout": 2
+    },
+    "slice": "identifier_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "order-timeout"
+      ]
+    ]
+  },
+  {
+    "id": "C47",
+    "query": "会员折扣两份优惠规则允许与禁止叠加冲突",
+    "gold": {
+      "conflict-a": 2,
+      "conflict-b": 2
+    },
+    "slice": "conflict_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "conflict-a"
+      ],
+      [
+        "conflict-b"
+      ]
+    ]
+  },
+  {
+    "id": "C48",
+    "query": "菜单位于未知配方场景，花生信息如何确认",
+    "gold": {
+      "unknown": 2
+    },
+    "slice": "recipe_control",
+    "family": "cross_domain_controls",
+    "tenant": "demo",
+    "principal": "alice",
+    "at": "2026-10-13T12:00:00+08:00",
+    "split": "dev",
+    "required_groups": [
+      [
+        "unknown"
+      ]
+    ]
+  }
+]

@@ -1,3 +1,5 @@
+from dataclasses import replace
+
 from .contracts import Document, Identity
 from .store import Store
 
@@ -100,4 +102,61 @@ def corpus():
             value="no",
         ),
     ]
-    return Store(docs)
+    # Curated source metadata, never inferred from an untrusted query or document instruction.
+    metadata = {
+        "phone128": dict(
+            entities=("PHONE-A-128",),
+            topics=("product_spec",),
+            category="smartphone",
+            brand="Apple",
+            capacity_gb=128,
+            style="standard",
+        ),
+        "phone256": dict(
+            entities=("PHONE-A-256",),
+            topics=("product_spec",),
+            category="smartphone",
+            brand="Apple",
+            capacity_gb=256,
+            style="standard",
+        ),
+        "fruit": dict(entities=("FRUIT-FUJI-1KG",), category="fruit", topics=("product_spec",)),
+        "case": dict(
+            entities=("PHONE-A-128", "PHONE-A-256"),
+            category="accessory",
+            brand="Apple",
+            topics=("accessory_compatibility",),
+        ),
+        "pay-error": dict(entities=("ERR-PAY-042",), topics=("payment_diagnosis",)),
+        "order-timeout": dict(entities=("svc-order-v2",), topics=("message_diagnosis",)),
+        "menu-channel": dict(topics=("menu_availability",)),
+        "menu-contract": dict(
+            topics=(
+                "menu_availability",
+                "release_contract",
+            )
+        ),
+        "price-contract": dict(
+            topics=(
+                "release_contract",
+                "pricing_rules",
+            )
+        ),
+        "price-rule": dict(topics=("pricing_rules",)),
+        "states": dict(topics=("lifecycle",)),
+        "graph-rule": dict(
+            topics=(
+                "environment_identity",
+                "dependency_safety",
+            )
+        ),
+        "incident1": dict(topics=("incident_diagnosis",)),
+        "incident2": dict(
+            topics=(
+                "incident_diagnosis",
+                "message_diagnosis",
+            )
+        ),
+        "unknown": dict(topics=("recipe_safety",)),
+    }
+    return Store([replace(d, **metadata.get(d.id, {})) for d in docs])

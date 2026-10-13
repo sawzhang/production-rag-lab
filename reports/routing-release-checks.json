@@ -1,0 +1,19 @@
+{
+  "scope": "recorded synthetic release evidence, not production acceptance",
+  "passed": true,
+  "checks": {
+    "input_fingerprints": true,
+    "routing_code_fingerprints": true,
+    "expanded_retrieval_count": true,
+    "no_rerank_fallback": true,
+    "no_per_query_ndcg_regression": true,
+    "all_required_groups_covered": true,
+    "capacity_known_regression": true,
+    "environment_known_regression": true,
+    "menu_known_regression": true,
+    "menu_no_recipe_or_injection": true,
+    "new_validation_coverage": true,
+    "task_contracts": true,
+    "generation_contracts": true
+  }
+}
